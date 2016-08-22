@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">贝雪魔盒</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_video">正在准备哦...</string>
+    <string name="add_image">正在加载图片...</string>
+    <string name="password">密  码:</string>
+    <string name="image_null">图片加载失败</string>
+    
+    <string name="vst_open_error">打开VST失败！错误信息：</string>
+    <string name="dream">梦幻剧场</string>
+    <string name="music">成长旋律</string>
+    <string name="album">亲子相册</string>
+    <string name="emotion">情商培养</string>
+    <string name="study">学习天地</string>
+    <string name="setting">设置</string>
+    
+    
+    
+    <string name="dream_item1">本地片源</string>
+    <string name="dream_item2">早教益智</string>
+    <string name="dream_item3">绘本故事</string>
+    <string name="dream_item4">经典动画</string>
+    <string name="dream_item5">习惯养成</string>
+    <string name="dream_item6">童话故事</string>
+    
+    
+    <string name="study_item1">国学天地</string>
+    <string name="study_item2">我爱数学</string>
+    <string name="study_item3">英语ABC</string>
+    <string name="study_item4">拼音汉字</string>
+    <string name="study_item5">百科知识</string>
+    <string name="study_item6">互动游戏</string>
+    
+    
+    <string name="setting_item1">wifi</string>
+    <string name="setting_item2">亮度</string>
+    <string name="setting_item3">存储</string>
+    <string name="setting_item4">语言</string>
+    <string name="setting_item5">主题</string>
+    <string name="setting_item6">蓝牙</string>
+    <string name="setting_item7">系统</string>
+    <string name="setting_item8">屏幕共享</string>
+    
+    
+    
+    <string name="emotion_item1">自信心</string>
+    <string name="emotion_item2">同理心</string>
+    <string name="emotion_item3">责任心</string>
+    <string name="emotion_item4">独立性</string>
+    <string name="emotion_item5">自律</string>
+    <string name="emotion_item6">社会交往</string>
+    <string name="emotion_item7">情绪管理</string>
+    <string name="emotion_item8">挫折抵抗</string>
+    <string name="emotion_item9">问题解决</string>
+    
+    
+    
+    <string  name="connect">连接</string>
+    <string  name="cancle">取消</string>
+    <string  name="wifi_connect">正在连接wifi...</string>
+    
+    
+    <string name="setting_save">存储</string>
+    <string name="setting_save_all">空间总量</string>
+    <string name="setting_save_can_use">可用大小</string>
+    <string name="setting_save_default_value">0GB</string>
+    
+    
+    <string name="setting_bluetooth">蓝牙</string>
+    <string name="setting_bluetooth_open">开启</string>
+    <string name="setting_bluetooth_close">关闭</string>
+    <string name="setting_bluetooth_search">搜索</string>
+    <string name="setting_bluetooth_see">可见</string>
+    
+    
+    <string name="setting_light">亮度</string>
+    <string name="setting_light_high">高</string>
+    <string name="setting_light_low">低</string>
+    <string name="setting_light_middle">中</string>
+    
+    
+    <string name="setting_screen_share">屏幕共享</string>
+    
+    
+    
+    <string name="setting_system">系统</string>
+    <string name="setting_system_name">设备名称</string>
+    <string name="setting_system_version">版本信息</string>
+    
+    
+    <string name="setting_theme">主题</string>
+    <string name="setting_theme_1">主题一</string>
+    <string name="setting_theme_2">主题二</string>
+    
+      <string name="setting_language">语言</string>
+    <string name="setting_language_chinese">中文</string>
+    <string name="setting_language_english">English</string>
+  
+    
+    
+    <string name="music_is_null">您还没有本地音乐文件哦</string>
+    
+    <string name="local_video_path">早教视频</string>
+
+</resources>

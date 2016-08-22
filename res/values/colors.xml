@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="white">#ffffffff</color>
+	<color name="white_50_opacity">#80ffffff</color>
+	<color name="black">#ff000000</color>
+	<color name="black_50_opacity">#80000000</color>
+	<color name="red">#ffff0000</color>
+	
+    <color name="blue">#0000ff</color>
+    <color name="grey">#F5FFFA</color>
+    <color name="light_blue">#3e6699</color>
+    <color name="dark_blue">#003366</color>
+    <color name="dark">#B2B2B2</color>
+    <color name="green">#b2ffb2</color>
+    <color name="detail_point">#ffaa00</color>
+    <drawable name="dark_blue_bg">#3e6699</drawable>
+    <color name="app_tip_textcolor">#999999</color>
+    
+    <color name="white_transparency">#00ffffff</color>
+    <color name="top_bar_text">#46aff9</color>
+    
+    
+</resources>

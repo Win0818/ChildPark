@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/lovebeam_topbar_bg">
+    
+   <TextView
+            android:id="@+id/tv_topBar_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/date_text"
+            android:textColor="@color/top_bar_text" 
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_alignParentLeft="true"
+            android:textSize="35sp"
+            android:textStyle="bold"/>
+        
+    <ImageView
+            android:id="@+id/iv_topBar_bettery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dip"
+            android:src="@drawable/top_bettery_icon2_new"
+            android:contentDescription="@string/image_null"
+          />
+   
+       <TextView
+            android:id="@+id/tv_topBar_bettery_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/iv_topBar_bettery"
+            android:layout_marginRight="5dip"
+            android:layout_centerVertical="true"
+            android:textColor="@color/top_bar_text" 
+            android:textSize="35sp"/>   
+            
+       
+       <LinearLayout 
+           android:id="@+id/Llayout_top_bar"
+           android:layout_width="wrap_content"
+           android:layout_height="25dp"
+           android:orientation="horizontal"
+           android:layout_toLeftOf="@id/tv_topBar_bettery_number"
+           android:gravity="right|center_vertical"
+           android:layout_marginRight="10dp"
+           >
+           
+        <ImageView
+            android:id="@+id/iv_topbar_bluetooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_bluetooth_icon_new"
+            android:contentDescription="@string/image_null"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="5dp"
+            />
+        
+           <ImageView
+            android:id="@+id/iv_topbar_wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/top_wifi_icon_new"
+            android:contentDescription="@string/image_null"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone"
+            />
+           
+       </LinearLayout>
+
+</RelativeLayout>

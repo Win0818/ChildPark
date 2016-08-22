@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/Rlayout_parent_system_main_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+      <ImageView
+            android:id="@+id/iv_parent_system_control"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:background="@drawable/qingziyue"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@id/iv_parent_system_control"
+            />
+
+        <ImageView
+            android:id="@+id/iv_parent_system_wifi"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="100dip"
+            android:background="@drawable/m_signal"
+            android:contentDescription="@string/image_null"
+            android:paddingTop="5dip" />
+
+        <TextView
+            android:id="@+id/tv_parent_system_time"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginRight="5dip"
+            android:layout_toLeftOf="@id/iv_parent_system_wifi"
+            android:textColor="@color/black" 
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/iv_parent_system_bettery"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/m_electric"
+            android:contentDescription="@string/image_null"
+          />
+
+        <TextView
+            android:id="@+id/iv_parent_system_bettery_number"
+            android:layout_width="wrap_content"
+            android:layout_height="20dip"
+            android:layout_marginRight="5dip"
+            android:layout_toLeftOf="@id/iv_parent_system_bettery"
+            android:text="@string/electric_data"
+            android:textColor="@color/black" 
+            android:textSize="18sp"/>
+
+</RelativeLayout>

@@ -1,0 +1,236 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <include layout="@layout/lovebeam_top_bar" />
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|top"
+        android:gravity="center_horizontal|top"
+        android:orientation="vertical"
+        android:layout_marginTop="2dip"
+        android:layout_marginLeft="100dip"
+        android:layout_marginRight="100dip">
+        
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="240dip"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:orientation="horizontal" >
+	
+	        <RelativeLayout
+	            android:id="@+id/Rl_main_story_house"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	         >
+	
+	            <ImageView
+	                android:id="@+id/iv_mian_story_house"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerInParent="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_story_house"/>
+	        </RelativeLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/Rl_main_nursery_rhyme"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	            android:nextFocusDown="@+id/Rl_main_study"
+	            android:nextFocusRight="@+id/Rl_main_album" >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_nursery_rhyme"
+	                 android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_nursery_rhyme" />
+	            
+	        </RelativeLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/Rl_main_classics_sinology"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	            android:nextFocusDown="@+id/Rl_main_setting"
+	            android:nextFocusRight="@+id/Rl_main_emotion" >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_classics_sinology"
+	                 android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_classics_sinology" />
+	
+	        </RelativeLayout>
+	        
+	         <RelativeLayout
+	            android:id="@+id/Rl_main_english_learn"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	            >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_english_learn"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_english_learn" />
+	        </RelativeLayout>
+	        
+	          <RelativeLayout
+	            android:id="@+id/Rl_main_animal_world"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	            >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_animal_world"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_animal_world" />
+	        </RelativeLayout>
+	        
+	    </LinearLayout>
+	    
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="250dip"
+	        android:layout_gravity="center"
+	        android:gravity="center"
+	        android:orientation="horizontal">
+	        
+	        <RelativeLayout
+	            android:id="@+id/Rl_main_thinking_learn"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	             >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_thinking_learn"
+	                 android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_thinking_learn" />
+	
+	        </RelativeLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/Rl_main_app_store"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	             >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_app_store"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_app_store" />
+	
+	        </RelativeLayout>
+	
+	        <RelativeLayout
+	            android:id="@+id/Rl_main_play_online"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	             >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_play_online"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_play_online" />
+	
+	        </RelativeLayout>
+	         <RelativeLayout
+	            android:id="@+id/Rl_main_extends_store"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	             >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_extends_store"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_extends_store" />
+	
+	        </RelativeLayout>
+	         <RelativeLayout
+	            android:id="@+id/Rl_main_system_setting"
+	            android:layout_width="0dp"
+	            android:layout_height="wrap_content"
+	            android:layout_margin="5dp"
+	            android:layout_weight="1"
+	            android:padding="5dp"
+	            android:clickable="true"
+	          >
+	
+	            <ImageView
+	                android:id="@+id/iv_main_system_setting"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerHorizontal="true"
+	                android:contentDescription="@string/image_null"
+	                android:src="@drawable/selector_main_system_setting" />
+	
+	        </RelativeLayout>
+	    </LinearLayout>
+
+	 </LinearLayout>
+</LinearLayout>

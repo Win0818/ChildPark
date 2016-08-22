@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">贝雪魔盒</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_video">正在获取视频哦\.\.\.</string>
+    <string name="add_image">正在加载图片/././.</string>
+    <string name="add_local_music">正在加载本地音乐\.\.\.</string>
+    <string name="user_name">用户名:</string>
+    <string name="password">密      码:</string>
+    <string name="login">登   录</string>
+    <string name="register">注   册</string>
+    
+    <string name="category_item1">故事大王</string>
+    <string name="category_item2">童瑶儿歌</string>
+    <string name="category_item3">国学经典</string>
+    <string name="category_item4">英语学习</string>
+    <string name="category_item5">动物世界</string>
+    <string name="category_item6">想象识字</string>
+    
+    <string name="all_app_error">打开本地应用错误：</string>
+    <string name="vst_open_error">打开VST失败！错误信息：</string>
+    <string name="extsdcard_path">用户TF卡接入，路径为：</string>
+    <string name="extsdcard_no">未找到外部SDCARD卡</string>
+    <string name="extusb_path">用户U盘接入，路径为：</string>
+    <string name="extusb_no">未找到U盘！</string>
+    <string name="image_null">图片加载失败</string>
+    <string name="current_volume">当前音量</string>
+    <string name="date_text">9月15日  12:00</string>
+    <string name="electric_data">50%</string>
+    
+        
+    <string name="main_dream">梦幻剧场</string>
+    <string name="main_music">成长旋律</string>
+    <string name="main_album">亲子相册</string>
+    <string name="main_emotion">情商培养</string>
+    <string name="main_study">学习天地</string>
+    <string name="main_setting">设置</string>
+    
+     <string name="app_version">软件版本</string>
+    
+    <string name="dream_item1">本地片源</string>
+    <string name="dream_item2">早教益智</string>
+    <string name="dream_item3">绘本故事</string>
+    <string name="dream_item4">经典动画</string>
+    <string name="dream_item5">习惯养成</string>
+    <string name="dream_item6">童话故事</string>
+    
+    
+    <string name="study_item1">国学天地</string>
+    <string name="study_item2">我爱数学</string>
+    <string name="study_item3">英语ABC</string>
+    <string name="study_item4">拼音汉字</string>
+    <string name="study_item5">百科知识</string>
+    <string name="study_item6">互动游戏</string>
+    
+    
+    <string name="setting_item1">wifi</string>
+    <string name="setting_item2">亮度</string>
+    <string name="setting_item3">存储</string>
+    <string name="setting_item4">语言</string>
+    <string name="setting_item5">主题</string>
+    <string name="setting_item6">蓝牙</string>
+    <string name="setting_item7">系统</string>
+    <string name="setting_item8">版本信息</string>
+    
+    
+    
+    <string name="emotion_item1">自信心</string>
+    <string name="emotion_item2">同理心</string>
+    <string name="emotion_item3">责任心</string>
+    <string name="emotion_item4">独立性</string>
+    <string name="emotion_item5">自律</string>
+    <string name="emotion_item6">社会交往</string>
+    <string name="emotion_item7">情绪管理</string>
+    <string name="emotion_item8">挫折抵抗</string>
+    <string name="emotion_item9">问题解决</string>
+    
+    
+    
+    <string  name="connect">连接</string>
+    <string  name="cancle">取消</string>
+    <string  name="wifi_info">已经连接</string>
+    <string  name="wifi_connect">正在连接wifi...</string>
+    <string  name="wifi_connect_fail">Wifi连接失败，请重试!</string>
+    <string  name="wifi_connect_note">请输入wifi密码</string>
+    <string  name="wifi_connect_no_pass">此信号为公开信号，无密码</string>
+    
+    <string name="setting_save">存储</string>
+    <string name="setting_save_all">内置卡空间总量</string>
+    <string name="setting_save_can_use">内置卡可用大小</string>
+    <string name="setting_extsd_save_all">外置TF卡空间总量</string>
+    <string name="setting_extsd_save_can_use">外置TF卡可用大小</string>
+    <string name="setting_save_default_value">0GB</string>
+    
+    
+    <string name="setting_bluetooth">蓝牙</string>
+    <string name="setting_bluetooth_open">开启</string>
+    <string name="setting_bluetooth_close">关闭</string>
+    <string name="setting_bluetooth_search">搜索</string>
+    <string name="setting_bluetooth_see">可见</string>
+    
+    
+    <string name="setting_light">亮度</string>
+    <string name="setting_light_high">高</string>
+    <string name="setting_light_low">低</string>
+    <string name="setting_light_middle">中</string>
+    
+    
+    <string name="setting_screen_share">屏幕共享</string>
+    
+    
+    
+    <string name="setting_system">系统</string>
+    <string name="setting_system_name">设备名称</string>
+    <string name="setting_system_version">版本信息</string>
+    
+    
+    <string name="setting_theme">主题</string>
+    <string name="setting_theme_1">主题一</string>
+    <string name="setting_theme_2">主题二</string>
+    
+    <string name="setting_language">Language</string>
+    <string name="setting_language_chinese">Chinese</string>
+    <string name="setting_language_english">English</string>
+    
+    <string name="sdcard_music_is_null">您的内存卡中还没有音乐文件哦!</string>
+    <string name="sdcard_video_is_null">您的内存卡中还没有视频文件哦!</string>
+    <string name="sdcard_album_is_null">您的内存卡中还没有图片文件哦!</string>
+    <string name="net_video_is_null">此项中还没有相关视频文件哦!</string>
+    <string name="wifi_connect_is_null">您还没有连接wifi,请到设置中连接wifi</string>
+    
+     
+     <string name="button">进入主界面</string>
+     
+     <!-- new  -->
+     <string name="video_property">属性：</string>
+     <string name="video_type">类型：</string>
+     <string name="video_size">大小：</string>
+     
+     <string name="String1">敬请期待</string>
+     <string name="usb_unmount">没有USB接入</string>
+     <string name="usb_mount">有USB设备接入</string>
+     
+
+</resources>

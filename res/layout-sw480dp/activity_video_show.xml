@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:orientation="vertical" >
+    
+    <include layout="@layout/lovebeam_top_bar"/>
+    
+    <TextView 
+        android:id="@+id/tv_video_is_null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:visibility="gone"
+        />
+    
+   <ListView 
+       android:id="@+id/List_show_video"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginLeft="20dp"
+       android:layout_marginRight="20dp"
+       android:layout_marginTop="20dp"
+       android:clickable="true"
+       android:cacheColorHint="#00000000"
+       android:listSelector="#00000000"
+       >
+   </ListView>
+   
+   
+   
+   
+
+</LinearLayout>

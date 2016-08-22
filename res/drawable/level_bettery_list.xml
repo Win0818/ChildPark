@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android" >
+  <item android:maxLevel="10" android:drawable="@drawable/top_bettery_icon2_new" />  
+  <item android:maxLevel="35" android:drawable="@drawable/top_bettery_icon3_new" />  
+  <item android:maxLevel="65" android:drawable="@drawable/top_bettery_icon4_new" />  
+  <item android:maxLevel="100" android:drawable="@drawable/top_bettery_icon1_new" />  
+</level-list>

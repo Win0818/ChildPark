@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:orientation="vertical" 
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    
+    <include layout="@layout/lovebeam_top_bar"
+         android:visibility="gone"/>
+    
+    <SurfaceView 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+        android:layout_gravity="center" 
+        android:id="@+id/video_player_surface">
+    </SurfaceView>
+    
+     <RelativeLayout
+        android:id="@+id/Llayout_seekbar_play"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:background="@drawable/video_bottom_bg"
+        >
+        
+     <TextView 
+         android:id="@+id/tv_video_time_long"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/dream"
+         android:textSize="15sp"
+         android:gravity="center"
+         android:textColor="@color/white"
+         android:layout_centerVertical="true"
+         android:layout_marginRight="15dp"
+         android:layout_toLeftOf="@+id/seekbar_video_play"
+         />
+          
+     
+      <TextView 
+         android:id="@+id/tv_video_name"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textSize="15sp"
+         android:textColor="@color/white"
+         android:layout_above="@id/seekbar_video_play"
+         android:layout_centerHorizontal="true"
+         android:layout_marginRight="15dp"
+        />
+    
+     <SeekBar 
+            android:id="@+id/seekbar_video_play"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:maxHeight="4dip"
+	        android:minHeight="4dip"
+            android:max="100"
+            android:layout_centerInParent="true"
+            android:thumb="@drawable/video_thumb_white"
+            android:progressDrawable="@drawable/seekbar_video_play_drawable"
+            />
+     
+     <TextView 
+         android:id="@+id/tv_video_time_play"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/dream"
+         android:textSize="15sp"
+         android:gravity="center"
+         android:textColor="@color/white"
+         android:layout_centerVertical="true"
+         android:layout_marginLeft="15dp"
+         android:layout_toRightOf="@id/seekbar_video_play"
+         />
+     
+     </RelativeLayout>
+     
+     
+     
+
+    
+    
+    
+     <LinearLayout
+        android:id="@+id/Llayout_video_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="60dp"
+        android:orientation="horizontal"
+        >
+        
+        <ImageButton 
+            android:id="@+id/ib_video_play_last"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/btn_select_left_last"
+            android:contentDescription="@string/image_null"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:nextFocusRight="@+id/ib_video_play"
+            />
+        
+        
+        <ImageButton 
+            android:id="@+id/ib_video_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/music_play_btn_selected"
+            android:layout_marginLeft="15dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:nextFocusLeft="@id/ib_video_play_last"
+            android:nextFocusRight="@+id/ib_video_play_next"
+            android:contentDescription="@string/image_null"
+            />
+        
+        <ImageButton 
+            android:id="@+id/ib_video_play_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/btn_select_right_next"
+            android:layout_marginLeft="15dp"
+            android:contentDescription="@string/image_null"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:nextFocusRight="@id/ib_video_play"
+            />
+    </LinearLayout>
+    
+     
+     
+    
+    
+    
+</FrameLayout>
