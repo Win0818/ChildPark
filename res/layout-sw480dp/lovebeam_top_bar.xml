@@ -12,11 +12,22 @@
             android:text="@string/date_text"
             android:textColor="@color/top_bar_text" 
             android:layout_centerVertical="true"
-            android:layout_marginLeft="5dp"
-            android:layout_alignParentLeft="true"
+            android:layout_marginRight="298dp"
+            android:layout_alignParentRight="true"
             android:textSize="35sp"
             android:textStyle="bold"/>
         
+   <TextView
+            android:id="@+id/tv_topBar_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/system_model"
+            android:textColor="@color/top_bar_text" 
+            android:layout_centerVertical="true"
+            android:layout_marginRight="130dp"
+            android:layout_alignParentRight="true"
+            android:textSize="35sp"
+            android:textStyle="bold"/>
     <ImageView
             android:id="@+id/iv_topBar_bettery"
             android:layout_width="wrap_content"
@@ -34,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/iv_topBar_bettery"
             android:layout_marginRight="5dip"
+            android:text="%10"
             android:layout_centerVertical="true"
             android:textColor="@color/top_bar_text" 
             android:textSize="35sp"/>   
@@ -42,21 +54,21 @@
        <LinearLayout 
            android:id="@+id/Llayout_top_bar"
            android:layout_width="wrap_content"
-           android:layout_height="25dp"
+           android:layout_height="40dp"
            android:orientation="horizontal"
-           android:layout_toLeftOf="@id/tv_topBar_bettery_number"
+           android:layout_toLeftOf="@id/tv_topBar_date"
            android:gravity="right|center_vertical"
-           android:layout_marginRight="10dp"
+           android:layout_marginRight="18dp"
            >
            
         <ImageView
             android:id="@+id/iv_topbar_bluetooth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="17dp"
+            android:layout_height="25dp"
             android:background="@drawable/top_bluetooth_icon_new"
             android:contentDescription="@string/image_null"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="20dp"
             />
         
            <ImageView
@@ -66,7 +78,7 @@
             android:background="@drawable/top_wifi_icon_new"
             android:contentDescription="@string/image_null"
             android:layout_gravity="center_vertical"
-            android:visibility="gone"
+            android:visibility="visible"
             />
            
        </LinearLayout>

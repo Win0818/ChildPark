@@ -38,6 +38,8 @@ public class Comments {
 	
 	public final static  int WIFI_IS_CONNECT = 0x0001;
 	public final static  int WIFI_NOT_CONNECT = 0x0002;
+	public final static  int BLUETOOTH_IS_CONNECT = 0x0009;
+	public final static  int BLUETOOTH_NOT_CONNECT = 0x00A0;
 	public final static  int WIFI_REFRESH = 0x0003; 
 	public final static  int WIFI_LOOP_TIME = 30 * 1000;
 	public static boolean IS_CONNECT_WIFI = false;

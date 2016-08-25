@@ -83,6 +83,20 @@ public class BaseActivity extends Activity {
 				}
 				Comments.IS_CONNECT_WIFI = false;
 				break;
+				
+			case Comments.BLUETOOTH_IS_CONNECT:
+				if (mIvWifi != null) {
+					mIvWifi.setVisibility(View.VISIBLE);
+				}
+				Comments.IS_CONNECT_WIFI = true;
+				break;
+
+			case Comments.BLUETOOTH_NOT_CONNECT:
+				if (mIvWifi != null) {
+					mIvWifi.setVisibility(View.GONE);
+				}
+				Comments.IS_CONNECT_WIFI = false;
+				break;
 
 			case Comments.GET_SYSTEM_TIME:
 				updateSystemTimer();
@@ -160,10 +174,10 @@ public class BaseActivity extends Activity {
 		mBetteryIcon = (ImageView) findViewById(R.id.iv_topBar_bettery);
 		mTvTime = (TextView) findViewById(R.id.tv_topBar_date);
 		mTvBettery = (TextView) findViewById(R.id.tv_topBar_bettery_number);
-		mDateFormat = new SimpleDateFormat("MM月dd日  HH:mm");
+		mDateFormat = new SimpleDateFormat("yyyy年MM月dd日  E HH:mm");
 		mTvBettery.setText(Comments.BETTERY_LEVER_INFO);
 		
-		showBlueToothIcon();
+		showBlueToothIcon();    
 		registerWifi();
 		registerBettery();
 		startGetSystemTime();
@@ -364,7 +378,7 @@ public class BaseActivity extends Activity {
 		if (Comments.BLUETOOTH_OPEN) {
 			mIvBlueTooth.setVisibility(View.VISIBLE);
 		} else {
-			mIvBlueTooth.setVisibility(View.GONE);
+			mIvBlueTooth.setVisibility(View.VISIBLE);
 		}
 	}
 	 
