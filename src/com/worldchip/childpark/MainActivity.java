@@ -232,11 +232,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			setSlectedIv(8);
 			// openUsbContent();
 			//skipLocalVideoListActivity(-1);
-			showVersion();
+			//showVersion();
+			startVersionActivity();
 			break;
 		case R.id.Rl_main_system_setting:
 			setSlectedIv(9);
-			openSystemSetting();
+			//openSystemSetting();
+			startMySystemSetupActivity();
 			break;
 		default:
 			break;
@@ -274,6 +276,17 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			}
 		}
 	}
+	 private void startVersionActivity() {
+	    	Intent intent = new Intent(MainActivity.this,
+					VersionActivity.class);
+			try{
+			    startActivity(intent);
+			}catch(Exception err){
+				Toast.makeText(MainActivity.this,
+						getString(R.string.all_app_error) + err.getMessage(),
+						Toast.LENGTH_LONG).show();
+			}
+		}
 
     private void startAllAppActivity(int i) {
     	Intent intent = new Intent(MainActivity.this,
@@ -341,6 +354,17 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 					Toast.LENGTH_LONG).show();
 		}
 	}
+	private void startMySystemSetupActivity() {
+		Intent intent = new Intent(MainActivity.this,
+				MySystemSetupActivity.class);
+		try{
+		    startActivity(intent);
+		}catch(Exception err){
+			Toast.makeText(MainActivity.this,
+					getString(R.string.all_app_error) + err.getMessage(),
+					Toast.LENGTH_LONG).show();
+		}
+	}
 
 	private void openSystemSetting() {
 		Intent settingIntent = new Intent("/");
@@ -403,11 +427,13 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 						setSlectedIv(8);
 						// openUsbContent();
 						//skipLocalVideoListActivity(-1);
-						showVersion();
+						//showVersion();
+						startVersionActivity();
 						break;
 					case 9:
 						setSlectedIv(9);
-						openSystemSetting();
+						//openSystemSetting();
+						startMySystemSetupActivity();
 						break;
 					default:
 						break;

@@ -116,6 +116,10 @@
     <string name="setting_system_name">设备名称</string>
     <string name="setting_system_version">版本信息</string>
     
+    <string name="version_info_version_name">系统版本号: </string>
+    <string name="version_info_version_status">版本状态        ： </string>
+    <string name="version_info_version_status_value">此版本为最新版本 </string>
+    <string name="version_info_back_btn">返回 </string>
     
     <string name="setting_theme">主题</string>
     <string name="setting_theme_1">主题一</string>

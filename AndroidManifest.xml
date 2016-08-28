@@ -43,6 +43,10 @@
         
         <activity android:name="com.worldchip.childpark.LocalVideoShowActivity"
                   android:screenOrientation="landscape"></activity>
+        <activity android:name="com.worldchip.childpark.VersionActivity"
+                  android:screenOrientation="landscape"></activity>
+        <activity android:name="com.worldchip.childpark.MySystemSetupActivity"
+                  android:screenOrientation="landscape"></activity>
         
         
  <receiver android:name="com.worldchip.childpark.service.com.worldchip.childpark.service" >  
