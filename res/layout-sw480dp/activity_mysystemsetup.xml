@@ -4,25 +4,27 @@
     android:layout_height="match_parent"
     android:background="@drawable/main_bg" >
 
+    <include layout="@layout/lovebeam_top_bar" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="80dp"
         android:text="系统设置"
         android:textColor="@color/black"
         android:textSize="60sp"
         android:textStyle="bold" />
 
-    <LinearLayout
+    <RadioGroup
+        android:id="@+id/display_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="190dp"
+        android:layout_marginTop="180dp"
         android:orientation="horizontal" >
-
+		
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,7 +32,8 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/eyeshield_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -38,7 +41,8 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/standard_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -46,20 +50,22 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/hd_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="高清模式"
             android:textColor="@color/black"
             android:textSize="40sp" />
-    </LinearLayout>
+    </RadioGroup>
 
-    <LinearLayout
+    <RadioGroup
+        android:id="@+id/desktop_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="245dp"
+        android:layout_marginTop="235dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -69,7 +75,8 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/child_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -77,7 +84,8 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/patriarch_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -86,19 +94,24 @@
             android:textSize="40sp" />
 
         <TextView
+            android:id="@+id/password_manager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+        	android:focusableInTouchMode="true"
+        	android:focusable="true"
+            android:background="@drawable/selector_version_backbutton"
             android:text="密码管理"
             android:textColor="@color/black"
             android:textSize="40sp" />
-    </LinearLayout>
+    </RadioGroup>
 
-    <LinearLayout
+    <RadioGroup
+        android:id="@+id/wifi_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="290dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -108,7 +121,8 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/wifi_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -116,20 +130,22 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/wifi_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="关"
             android:textColor="@color/black"
             android:textSize="40sp" />
-    </LinearLayout>
+    </RadioGroup>
 
-    <LinearLayout
+    <RadioGroup
+        android:id="@+id/bluetooth_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="355dp"
+        android:layout_marginTop="345dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -139,7 +155,8 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/bluetooth_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -147,20 +164,22 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/bluetooth_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="关"
             android:textColor="@color/black"
             android:textSize="40sp" />
-    </LinearLayout>
+    </RadioGroup>
 
-    <LinearLayout
+    <RadioGroup
+        android:id="@+id/time_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="410dp"
+        android:layout_marginTop="400dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -170,7 +189,8 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/time_auto_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -178,20 +198,22 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/time_manual_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="手动设置"
             android:textColor="@color/black"
             android:textSize="40sp" />
-    </LinearLayout>
+    </RadioGroup>
 
-    <LinearLayout
+    <RadioGroup
+        android:id="@+id/starting_up_sound_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="465dp"
+        android:layout_marginTop="455dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -201,7 +223,8 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/starting_up_sound_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -209,20 +232,21 @@
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <TextView
+        <RadioButton
+            android:id="@+id/starting_up_sound_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:text="关"
             android:textColor="@color/black"
             android:textSize="40sp" />
-    </LinearLayout>
+    </RadioGroup>
 
-    <LinearLayout
+    <!-- <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="510dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -239,14 +263,14 @@
             android:text="点击恢复初始设置"
             android:textColor="@color/black"
             android:textSize="40sp" />
-    </LinearLayout>
+    </LinearLayout> -->
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="575dp"
+        android:layout_marginTop="510dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -257,20 +281,26 @@
             android:textSize="40sp" />
 
         <TextView
+            android:id="@+id/enter_system_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:background="@drawable/selector_version_backbutton"
             android:text="点击进入"
             android:textColor="@color/black"
             android:textSize="40sp" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/version_back_btn"
+        android:id="@+id/system_setting_backbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="635dp"
+        android:layout_marginTop="610dp"
+        android:focusableInTouchMode="true"
+        android:focusable="true"
         android:background="@drawable/selector_version_backbutton"
         android:text="@string/version_info_back_btn"
         android:textColor="@color/black"
