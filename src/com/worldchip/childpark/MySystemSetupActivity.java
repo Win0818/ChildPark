@@ -1,11 +1,19 @@
 package com.worldchip.childpark;
 
+
+import com.worldchip.childpark.Comments.MySharePreData;
+
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
@@ -22,13 +30,16 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	private TextView mPasswordManager;
 	private TextView mEnterSystemSetting;
 	private Button mSystemSettingBack;
+	private WifiManager wifiManager;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_mysystemsetup);
 		
+		initData();
 		initView();
+		
 	}
 	
 	private void initView() {
@@ -53,6 +64,24 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		
 		mSystemSettingBack = (Button) findViewById(R.id.system_setting_backbtn);
 		mSystemSettingBack.setOnClickListener(this);
+		
+		RadioButton wifiOpen = (RadioButton) findViewById(R.id.wifi_open);
+		RadioButton wifiClose = (RadioButton) findViewById(R.id.wifi_close);
+		
+		RadioButton bluetoothOpen = (RadioButton) findViewById(R.id.bluetooth_open);
+		RadioButton bluetoothClose = (RadioButton) findViewById(R.id.bluetooth_close);
+		
+		wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		
+		if (wifiManager.isWifiEnabled()) {
+			wifiOpen.setChecked(true);
+		} else {
+			wifiClose.setChecked(true);
+		}
+		
+	}
+	
+	private void initData() {
 	}
 	
 	@Override
@@ -84,21 +113,37 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 		switch (checkedId) {
 		case R.id.eyeshield_mode:
-			
+			Log.i(TAG, "R.id.eyeshield_mode");
+			MySharePreData.SetIntData(this, "my_system_setting", "display_setting", 0);
 			break;
 		case R.id.standard_mode:
+			Log.i(TAG, "R.id.standard_mode");
+			MySharePreData.SetIntData(this, "my_system_setting", "display_setting", 1);
 			break;
 		case R.id.hd_mode:
-			
+			Log.i(TAG, "R.id.hd_mode");
+			MySharePreData.SetIntData(this, "my_system_setting", "display_setting", 2);
 			break;
 		case R.id.child_mode:
+			Log.i(TAG, "R.id.child_mode");
+			MySharePreData.SetBooleanData(this, "my_system_setting", "topdesk_setting", true);
 			break;
 		case R.id.patriarch_mode:
+			Log.i(TAG, "R.id.patriarch_mode");
+			MySharePreData.SetBooleanData(this, "my_system_setting", "topdesk_setting", false);
 			
 			break;
 		case R.id.wifi_open:
+			Log.i(TAG, "R.id.wifi_open");
+			if (wifiManager != null) {
+				wifiManager.setWifiEnabled(true);
+			}
 			break;
 		case R.id.wifi_close:
+			Log.i(TAG, "R.id.wifi_close");
+			if (wifiManager != null) {
+				wifiManager.setWifiEnabled(false);
+			}
 			break;
 		case R.id.bluetooth_open:
 			break;
@@ -115,6 +160,12 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		default:
 			break;
 		}
+	}
+	
+	@Override
+	public boolean dispatchKeyEvent(KeyEvent event) {
+		// TODO Auto-generated method stub
+		return super.dispatchKeyEvent(event);
 	}
 	
 	private void openSystemSetting() {

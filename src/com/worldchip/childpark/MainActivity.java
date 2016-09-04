@@ -289,8 +289,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}
 
     private void startAllAppActivity(int i) {
-    	Intent intent = new Intent(MainActivity.this,
-				AllAppActivity.class);
+    	Intent intent;
+    	if (MySharePreData.GetBooleanTrueData(getApplicationContext(), "my_system_setting", "topdesk_setting")) {
+    		intent = new Intent(MainActivity.this,
+    				ChildAppActivity.class);
+    	} else {
+    		intent = new Intent(MainActivity.this,
+    				AllAppActivity.class);
+    	}
 		intent.putExtra("category", i);
 		try{
 		    startActivity(intent);
