@@ -147,5 +147,6 @@
      <string name="usb_unmount">没有USB接入</string>
      <string name="usb_mount">有USB设备接入</string>
      
+     <string name="original_password">请输入当前密码：</string>
 
 </resources>

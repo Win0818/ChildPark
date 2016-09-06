@@ -3,6 +3,7 @@ package com.worldchip.childpark;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -117,6 +118,11 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		}
 	}
 	
+	@Override
+	public boolean dispatchKeyEvent(KeyEvent event) {
+		return super.dispatchKeyEvent(event);
+	}
+	
 	private void openSystemSetting() {
 		Intent settingIntent = new Intent("/");
 		ComponentName cm = new ComponentName("com.android.settings",
@@ -125,5 +131,5 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		settingIntent.setAction("android.intent.action.VIEW");
 		startActivity(settingIntent);
 	}
-
+	
 }
