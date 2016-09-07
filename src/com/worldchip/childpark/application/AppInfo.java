@@ -6,13 +6,32 @@ import android.graphics.drawable.Drawable;
 public class AppInfo {
 
 	public String TAG = "";
+	private int id;
 	private String appName;
 	private String packageName;
-	private Drawable icon;
+	private String icon;
 	private Bitmap userBackground;
 
 	public AppInfo() {
 
+	}
+	public AppInfo(int id, String packageName,String icon, String appName) 
+	{
+		super();
+		this.id = id;
+		this.packageName = packageName;
+		this.icon = icon;
+		this.appName = appName;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getAppName() {
@@ -31,11 +50,11 @@ public class AppInfo {
 		this.packageName = packageName;
 	}
 
-	public Drawable getIcon() {
+	public String getIcon() {
 		return icon;
 	}
 
-	public void setIcon(Drawable draIcon) {
+	public void setIcon(String draIcon) {
 		this.icon = draIcon;
 	}
 

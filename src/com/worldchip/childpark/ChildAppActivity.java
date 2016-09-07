@@ -3,18 +3,14 @@ package com.worldchip.childpark;
 import java.util.List;
 
 import com.worldchip.childpark.adapter.AllAppAdapter;
+import com.worldchip.childpark.adapter.ChildAppAdapter;
 import com.worldchip.childpark.application.AppInfo;
 import com.worldchip.childpark.application.AppInfoData;
-import com.worldchip.childpark.view.PasswordInputDialog;
-import com.worldchip.childpark.view.PasswordInputDialog.PasswordValidateListener;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,29 +19,23 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.AdapterView.OnItemClickListener;
 
+public class ChildAppActivity extends Activity{
 
-/**
- * ����Ӧ��
- * 
- * @author guofq
- */
-public class AllAppActivity extends Activity {
-
-	private static final String TAG = "AllAppActivity";
+	private static final String TAG = "ChildAppActivity";
+	
 	private GridView mGridApps;
 
 	private List<AppInfo> mAllApps;
-	private AllAppAdapter mAllAppAdapter;
+	private ChildAppAdapter mAllAppAdapter;
 
 	private AdapterView<?> mParent;
 	private int mPosition;
 	SharedPreferences mPrefs;
 
 	private Context mCtx;
-	private PasswordInputDialog mPasswordInputDialog = null;
 	
 
 	@SuppressLint("HandlerLeak")
@@ -54,8 +44,8 @@ public class AllAppActivity extends Activity {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case 0:
-				mAllAppAdapter = new AllAppAdapter(AllAppActivity.this,
-						mAllApps, mShareHandler);
+				mAllAppAdapter = new ChildAppAdapter(ChildAppActivity.this,
+						mAllApps);
 				mGridApps.setAdapter(mAllAppAdapter);
 				break;
 			default:
@@ -69,9 +59,9 @@ public class AllAppActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.all_app_layout);
 
-		mCtx = AllAppActivity.this;
+		mCtx = ChildAppActivity.this;
 		initView();
-		showPasswordInputView();
+		
 		initData();
 	}
 
@@ -88,7 +78,7 @@ public class AllAppActivity extends Activity {
 					final int position, long id) {
 				mParent = parent;
 				mPosition = position;
-				AllAppActivity.this.startTargetActivity(mParent, mPosition);
+				ChildAppActivity.this.startTargetActivity(mParent, mPosition);
 			}
 		});
 	}
@@ -115,7 +105,7 @@ public class AllAppActivity extends Activity {
 			public void run() {
 				try {
 					Log.e(TAG, "initData start...");
-					mAllApps = AppInfoData.getSystemAppDatas(mCtx);
+					mAllApps = AppInfoData.getLocalShareAppDatas(mCtx);
 					mHandler.sendEmptyMessage(0);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -145,26 +135,4 @@ public class AllAppActivity extends Activity {
 		super.onDestroy();
 	}
 	
-	private Handler mShareHandler = new Handler() {
-		
-	};
-	
-	private void showPasswordInputView() {
-		if (mPasswordInputDialog != null) {
-			if (mPasswordInputDialog.isShowing()) {
-				mPasswordInputDialog.dismiss();
-				mPasswordInputDialog = null;
-			}
-		}
-		mPasswordInputDialog = PasswordInputDialog.createDialog(mCtx);
-		mPasswordInputDialog.setListener(new PasswordValidateListener() {
-			@Override
-			public void onValidateComplete(boolean success) {
-				if (!success) {
-					AllAppActivity.this.finish();
-				}
-			}
-		});
-		mPasswordInputDialog.show();
-	}
 }

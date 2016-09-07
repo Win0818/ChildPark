@@ -22,6 +22,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 public class Utils {
 	private static final String TAG = "CHRIS";
@@ -161,5 +162,9 @@ public class Utils {
             out.write(b, 0, read);
         }
     }
+	
+	public static void showToastMessage(Context context, String msg) {
+		Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+	}
 
 }

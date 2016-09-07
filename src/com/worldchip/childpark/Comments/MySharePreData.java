@@ -25,7 +25,6 @@ public class MySharePreData {
 	        return value; 
 	    } 
 	    
-	    
 	    public static void SetIntData(Context context, String filename, String key, 
 	            int value) { 
 	        sp = context.getSharedPreferences(filename, context.MODE_PRIVATE); 
