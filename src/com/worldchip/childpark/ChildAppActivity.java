@@ -47,6 +47,7 @@ public class ChildAppActivity extends Activity{
 				mAllAppAdapter = new ChildAppAdapter(ChildAppActivity.this,
 						mAllApps);
 				mGridApps.setAdapter(mAllAppAdapter);
+				mAllAppAdapter.notifyDataSetChanged();
 				break;
 			default:
 				break;
@@ -57,8 +58,8 @@ public class ChildAppActivity extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.all_app_layout);
-
+		setContentView(R.layout.activity_baby_app);
+		Log.i(TAG, "Child onCreat------>>>>>>>>>>>>");
 		mCtx = ChildAppActivity.this;
 		initView();
 		
@@ -69,9 +70,8 @@ public class ChildAppActivity extends Activity{
 	protected void onResume() {
 		super.onResume();
 	}
-
 	private void initView() {
-		mGridApps = (GridView) findViewById(R.id.grid_apps);
+		mGridApps = (GridView) findViewById(R.id.baby_grid_apps);
 		mGridApps.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(final AdapterView<?> parent, View view,
@@ -104,8 +104,10 @@ public class ChildAppActivity extends Activity{
 			@Override
 			public void run() {
 				try {
-					Log.e(TAG, "initData start...");
+					Log.i(TAG, "initData start...");
+					AppInfoData.clearShareAppList();
 					mAllApps = AppInfoData.getLocalShareAppDatas(mCtx);
+					Log.i(TAG, "initData start..." + mAllApps.size());
 					mHandler.sendEmptyMessage(0);
 				} catch (Exception e) {
 					e.printStackTrace();

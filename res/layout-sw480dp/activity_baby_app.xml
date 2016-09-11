@@ -4,16 +4,16 @@
 		        android:layout_height="fill_parent"
 		        android:background="@drawable/main_bg"
 		        android:orientation="vertical" >
-	
+		        
+
     <TextView 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="所有应用"
+        android:text="我的应用"
         android:layout_centerHorizontal="true"
-        android:textSize="50sp"/>	        
-
+        android:textSize="50sp"/>
     <GridView
-        android:id="@+id/grid_apps"
+        android:id="@+id/baby_grid_apps"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30.0dp"

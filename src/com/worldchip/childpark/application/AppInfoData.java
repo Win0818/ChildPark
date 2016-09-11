@@ -107,6 +107,8 @@ public class AppInfoData {
 			if (checkBrowser(packageName, context)) {
 				appInfo = new AppInfo(id, packageName, icon, appName);
 				shareApps.add(appInfo);
+				Log.i("Wing", "getLocalShareAppDatas---->>>" + "packageName" + 
+				packageName + "::::" + "appName:  " + appName);
 			} else {
 				delShareAppId(context, id);
 			}
@@ -197,8 +199,8 @@ public class AppInfoData {
 					.getPackageManager())));
 			appInfo.setAppName(app.activityInfo.loadLabel(
 					context.getPackageManager()).toString());
-			//appInfo.isSelected = AppInfoData.getShareAppByData(context,
-				//	app.activityInfo.packageName);
+			appInfo.isSelected = AppInfoData.getShareAppByData(context,
+					app.activityInfo.packageName);
 			if (pkgs.toString().contains(app.activityInfo.packageName)) {
 				continue;
 			}

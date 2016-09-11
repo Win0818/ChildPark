@@ -11,6 +11,7 @@ public class AppInfo {
 	private String packageName;
 	private String icon;
 	private Bitmap userBackground;
+	public boolean isSelected = false;
 
 	public AppInfo() {
 

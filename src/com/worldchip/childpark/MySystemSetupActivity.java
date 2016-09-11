@@ -22,7 +22,8 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 						OnCheckedChangeListener{
 	
 	private RadioGroup mDisplaySetting;
-	private RadioGroup mDesktopSetting;
+	private TextView mAppManager;
+	private TextView mPatriarchMode; 
 	private RadioGroup mWIFISetting;
 	private RadioGroup mBluetoothSetting;
 	private RadioGroup mTimeSetting;
@@ -44,24 +45,24 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	
 	private void initView() {
 		mDisplaySetting = (RadioGroup) findViewById(R.id.display_setting);
-		mDesktopSetting = (RadioGroup) findViewById(R.id.desktop_setting);
 		mWIFISetting = (RadioGroup) findViewById(R.id.wifi_setting);
 		mBluetoothSetting = (RadioGroup) findViewById(R.id.bluetooth_setting);
 		mTimeSetting = (RadioGroup) findViewById(R.id.time_setting);
 		mSoundSetting = (RadioGroup) findViewById(R.id.starting_up_sound_setting);
 		
 		mDisplaySetting.setOnCheckedChangeListener(this);
-		mDesktopSetting.setOnCheckedChangeListener(this);
 		mWIFISetting.setOnCheckedChangeListener(this);
 		mBluetoothSetting.setOnCheckedChangeListener(this);
 		mTimeSetting.setOnCheckedChangeListener(this);
 		mSoundSetting.setOnCheckedChangeListener(this);
-		
+		mAppManager = (TextView) findViewById(R.id.app_manager);
+		mAppManager.setOnClickListener(this);
 		mPasswordManager = (TextView)findViewById(R.id.password_manager);
 		mEnterSystemSetting = (TextView)findViewById(R.id.enter_system_setting);
 		mPasswordManager.setOnClickListener(this);
 		mEnterSystemSetting.setOnClickListener(this);
-		
+		mPatriarchMode = (TextView)findViewById(R.id.patriarch_mode);
+		mPatriarchMode.setOnClickListener(this);
 		mSystemSettingBack = (Button) findViewById(R.id.system_setting_backbtn);
 		mSystemSettingBack.setOnClickListener(this);
 		
@@ -93,8 +94,16 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.app_manager:
+			Log.i(TAG, "R.id.app_manager");
+			AllAppActivity.start(this);
+			break;
+		case R.id.patriarch_mode:
+			Log.i(TAG, "R.id.app_manager");
+			AllAppActivity.start(this);
+			break;
 		case R.id.password_manager:
-			
+			PasswordManagerActivity.start(MySystemSetupActivity.this);
 			break;
 		case R.id.enter_system_setting:
 			openSystemSetting();
@@ -123,15 +132,6 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		case R.id.hd_mode:
 			Log.i(TAG, "R.id.hd_mode");
 			MySharePreData.SetIntData(this, "my_system_setting", "display_setting", 2);
-			break;
-		case R.id.child_mode:
-			Log.i(TAG, "R.id.child_mode");
-			MySharePreData.SetBooleanData(this, "my_system_setting", "topdesk_setting", true);
-			break;
-		case R.id.patriarch_mode:
-			Log.i(TAG, "R.id.patriarch_mode");
-			MySharePreData.SetBooleanData(this, "my_system_setting", "topdesk_setting", false);
-			
 			break;
 		case R.id.wifi_open:
 			Log.i(TAG, "R.id.wifi_open");

@@ -48,6 +48,12 @@
                   android:screenOrientation="landscape"></activity>
         <activity android:name="com.worldchip.childpark.MySystemSetupActivity"
                   android:screenOrientation="landscape"></activity>
+         <activity android:name="com.worldchip.childpark.ChildAppActivity"
+                  android:screenOrientation="landscape"></activity>
+         <activity android:name="com.worldchip.childpark.PasswordManagerActivity"
+                  android:screenOrientation="landscape"></activity>
+         <activity android:name="com.worldchip.childpark.ForgetPasswordActivity"
+                  android:screenOrientation="landscape"></activity>
         
         
  <receiver android:name="com.worldchip.childpark.service.com.worldchip.childpark.service" >  

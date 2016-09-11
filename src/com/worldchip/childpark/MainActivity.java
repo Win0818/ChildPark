@@ -221,7 +221,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		case R.id.Rl_main_app_store: //����Ӧ��
 			setSlectedIv(6);
 			//openVstapp(getApplicationContext());
-			startAllAppActivity(6);
+			startChildAppActivity(6);
 			break;
 		case R.id.Rl_main_play_online:  //�ⲿ�洢
 			setSlectedIv(7);
@@ -288,15 +288,9 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			}
 		}
 
-    private void startAllAppActivity(int i) {
-    	Intent intent;
-    	if (MySharePreData.GetBooleanTrueData(getApplicationContext(), "my_system_setting", "topdesk_setting")) {
-    		intent = new Intent(MainActivity.this,
+    private void startChildAppActivity(int i) {
+    	 Intent	intent = new Intent(MainActivity.this,
     				ChildAppActivity.class);
-    	} else {
-    		intent = new Intent(MainActivity.this,
-    				AllAppActivity.class);
-    	}
 		intent.putExtra("category", i);
 		try{
 		    startActivity(intent);
@@ -422,7 +416,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 					case 6:
 						setSlectedIv(6);
 						//openVstapp(getApplicationContext());
-						startAllAppActivity(6);
+						startChildAppActivity(6);
 						break;
 					case 7:
 						setSlectedIv(7);

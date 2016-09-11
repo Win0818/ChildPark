@@ -1,6 +1,7 @@
 package com.worldchip.childpark.adapter;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import com.worldchip.childpark.R;
@@ -38,6 +39,7 @@ public class AllAppAdapter extends BaseAdapter {
 	private boolean mDeleteState = false;
 	private String packageName = "";
 	Animation mReverseAnim = null;
+	private boolean isDbClick = false;
 	private Handler mHandler;
 	private List<AppInfo> shareList = new ArrayList<AppInfo>();
 
@@ -87,6 +89,7 @@ public class AllAppAdapter extends BaseAdapter {
 	class Holder {
 		private ImageView mItemType;
 		private TextView mItemName;
+		private ImageView mSelected;
 	}
 
 	@Override
@@ -99,6 +102,7 @@ public class AllAppAdapter extends BaseAdapter {
 					.findViewById(R.id.item_image);
 			holder.mItemName = (TextView) convertView
 					.findViewById(R.id.item_name);
+			holder.mSelected = (ImageView) convertView.findViewById(R.id.appisselected);
 			convertView.setTag(holder);
 		} else {
 			holder = (Holder) convertView.getTag();
@@ -107,7 +111,12 @@ public class AllAppAdapter extends BaseAdapter {
 		holder.mItemType.setImageDrawable(AppInfoData.byteToDrawable(info.getIcon()));
 		holder.mItemName.setText(info.getAppName());
 		holder.mItemName.setSelected(true);
-		holder.mItemType.setOnClickListener(new OnClickListener() {
+		if (info.isSelected) {
+			holder.mSelected.setImageResource(R.drawable.share_apk_right);
+		} else {
+			holder.mSelected.setImageResource(-1);
+		}
+		/*holder.mItemType.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
@@ -157,9 +166,9 @@ public class AllAppAdapter extends BaseAdapter {
 							message.sendToTarget();
 							
 						}
-					});
+					});*/
 					
-					addToChildApp.setOnClickListener(new OnClickListener() {
+					/*addToChildApp.setOnClickListener(new OnClickListener() {
 						
 						@Override
 						public void onClick(View v) {
@@ -170,13 +179,28 @@ public class AllAppAdapter extends BaseAdapter {
 							AppInfoData.addShareApp(mContext, values);
 							shareList.add(info);
 						}
-					});
+					});*/
 					
-				}
+				//}
 				
 				
-			}
-		});
+			//}
+		//});
 		return convertView;
+	}
+	
+	/**
+	 * ɾ���б���
+	 */
+	public void delItem(String packageName) {
+		Iterator<AppInfo> ite = mDataList.iterator();
+		while (ite.hasNext()) {
+			AppInfo appInfo = ite.next();
+			if (appInfo.getPackageName().equals(packageName)) {
+				ite.remove();
+				notifyDataSetChanged();
+				break;
+			}
+		}
 	}
 }

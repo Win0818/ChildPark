@@ -60,7 +60,7 @@
             android:textSize="40sp" />
     </RadioGroup>
 
-    <RadioGroup
+    <LinearLayout
         android:id="@+id/desktop_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,40 +71,48 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="桌面设置: "
+            android:text="家长设置: "
             android:textColor="@color/black"
             android:textSize="40sp" />
 
-        <RadioButton
-            android:id="@+id/child_mode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/app_manager"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
-            android:text="儿童模式"
+            android:focusableInTouchMode="true"
+        	android:focusable="true"
+            android:background="@drawable/selector_version_backbutton"
+            android:gravity="center"
+            android:text="应用管理"
             android:textColor="@color/black"
             android:textSize="40sp" />
-
-        <RadioButton
+        <TextView
             android:id="@+id/patriarch_mode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
+            android:focusableInTouchMode="true"
+        	android:focusable="true"
+            android:background="@drawable/selector_version_backbutton"
+            android:gravity="center"
             android:text="家长模式"
             android:textColor="@color/black"
             android:textSize="40sp" />
 
         <TextView
             android:id="@+id/password_manager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
         	android:focusableInTouchMode="true"
         	android:focusable="true"
+        	android:gravity="center"
             android:background="@drawable/selector_version_backbutton"
             android:text="密码管理"
             android:textColor="@color/black"
             android:textSize="40sp" />
-    </RadioGroup>
+    </LinearLayout>
 
     <RadioGroup
         android:id="@+id/wifi_setting"
@@ -282,11 +290,12 @@
 
         <TextView
             android:id="@+id/enter_system_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:gravity="center"
             android:background="@drawable/selector_version_backbutton"
             android:text="点击进入"
             android:textColor="@color/black"

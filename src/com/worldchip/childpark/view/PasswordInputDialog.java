@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.worldchip.childpark.ForgetPasswordActivity;
 import com.worldchip.childpark.R;
 import com.worldchip.childpark.Comments.MySharePreData;
 
@@ -38,7 +39,7 @@ public class PasswordInputDialog extends Dialog implements
 				R.style.password_dialog_style);
 		passwordInputDialog.setContentView(R.layout.enter_password_layout);
 		passwordInputDialog.getWindow().getAttributes().gravity = Gravity.CENTER;
-		passwordInputDialog.setCancelable(false);
+		passwordInputDialog.setCancelable(true);
 
 		return passwordInputDialog;
 	}
@@ -78,13 +79,8 @@ public class PasswordInputDialog extends Dialog implements
 			break;
 		case R.id.modify_password_tv:
 			try {
-				Intent modifyPswIntent = new Intent();
-				modifyPswIntent.setComponent(new ComponentName(
-						"com.worldchip.bbp.ect",
-						"com.worldchip.bbp.ect.activity.PassLockActivity"));
-				modifyPswIntent.putExtra("isChangePsw", true);
+				Intent modifyPswIntent = new Intent(mContext, ForgetPasswordActivity.class);
 				mContext.startActivity(modifyPswIntent);
-				dismissDialog(false);
 			} catch (Exception e) {
 				//Toast.makeText(mContext, R.string.start_app_error,
 				//		Toast.LENGTH_SHORT).show();
@@ -117,7 +113,7 @@ public class PasswordInputDialog extends Dialog implements
 			passwordInputDialog = null;
 		}
 		if (mListener != null) {
-			mListener.onValidateComplete(true);
+			mListener.onValidateComplete(success);
 		}
 	}
 	public void setListener(PasswordValidateListener listener) {
