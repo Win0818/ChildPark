@@ -133,7 +133,6 @@ public class AllAppActivity extends Activity {
 				}
 				mParent = parent;
 				mPosition = position;
-				//AllAppActivity.this.startTargetActivity(mParent, mPosition);
 			}
 		});
 		

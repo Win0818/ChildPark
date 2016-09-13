@@ -8,6 +8,7 @@ import java.util.TimerTask;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -46,6 +47,7 @@ public class BaseActivity extends Activity {
 
 	private ImageView mIvWifi, mIvBlueTooth, mBetteryIcon;
 	private TextView mTvTime, mTvBettery;
+	public TextView mTvMode;
 	private String mBetteryInfo;
 	private int mBetteryLevel = 50;
 	private int mBetteryScale = 100;
@@ -85,17 +87,16 @@ public class BaseActivity extends Activity {
 				break;
 				
 			case Comments.BLUETOOTH_IS_CONNECT:
-				if (mIvWifi != null) {
-					mIvWifi.setVisibility(View.VISIBLE);
+				if (mIvBlueTooth != null) {
+					mIvBlueTooth.setVisibility(View.VISIBLE);
 				}
-				Comments.IS_CONNECT_WIFI = true;
-				break;
+				Comments.BLUETOOTH_OPEN = true;
 
 			case Comments.BLUETOOTH_NOT_CONNECT:
-				if (mIvWifi != null) {
-					mIvWifi.setVisibility(View.GONE);
+				if (mIvBlueTooth != null) {
+					mIvBlueTooth.setVisibility(View.GONE);
 				}
-				Comments.IS_CONNECT_WIFI = false;
+				Comments.BLUETOOTH_OPEN = false;
 				break;
 
 			case Comments.GET_SYSTEM_TIME:
@@ -174,10 +175,12 @@ public class BaseActivity extends Activity {
 		mBetteryIcon = (ImageView) findViewById(R.id.iv_topBar_bettery);
 		mTvTime = (TextView) findViewById(R.id.tv_topBar_date);
 		mTvBettery = (TextView) findViewById(R.id.tv_topBar_bettery_number);
+		mTvMode = (TextView) findViewById(R.id.tv_topBar_model);
 		mDateFormat = new SimpleDateFormat("yyyy年MM月dd日  E HH:mm");
 		mTvBettery.setText(Comments.BETTERY_LEVER_INFO);
 		
-		showBlueToothIcon();    
+		//showBlueToothIcon();
+		registerBluetooth();
 		registerWifi();
 		registerBettery();
 		startGetSystemTime();
@@ -190,11 +193,22 @@ public class BaseActivity extends Activity {
 		unregisterReceiver(mBatteryInfoReceiver);
 		unregisterReceiver(MyWifiBroadcastRecever);
 	    unregisterReceiver(usbBroadCastReceiver);
+	    if (MyBluetoothBroadcastReceiver != null) {
+	    	unregisterReceiver(MyBluetoothBroadcastReceiver);
+	    }
 	}
 	
 	
 	
-
+	
+	
+	private void registerBluetooth() {
+		IntentFilter bluetoothFilter = new IntentFilter();
+		bluetoothFilter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
+		bluetoothFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
+		bluetoothFilter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+		this.registerReceiver(MyBluetoothBroadcastReceiver, bluetoothFilter);
+	}
 	
 	
 
@@ -222,6 +236,37 @@ public class BaseActivity extends Activity {
 	       iFilter.addDataScheme("file");
 	       registerReceiver(usbBroadCastReceiver, iFilter);
 	}
+	
+	BroadcastReceiver MyBluetoothBroadcastReceiver = new BroadcastReceiver() {
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
+			    int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
+			            BluetoothAdapter.ERROR);
+			    switch (state) {
+			        case BluetoothAdapter.STATE_OFF:
+			            Log.d(TAG, "STATE_OFF 手机蓝牙关闭");
+			            mHandler.removeMessages(Comments.BLUETOOTH_NOT_CONNECT);
+						mHandler.sendEmptyMessage(Comments.BLUETOOTH_NOT_CONNECT);
+			            break;
+			        case BluetoothAdapter.STATE_TURNING_OFF:
+			            Log.d(TAG, "STATE_TURNING_OFF 手机蓝牙正在关闭");
+			            break;
+			        case BluetoothAdapter.STATE_ON:
+			            Log.d(TAG, "STATE_ON 手机蓝牙开启");
+			            mHandler.removeMessages(Comments.BLUETOOTH_IS_CONNECT);
+						mHandler.sendEmptyMessage(Comments.BLUETOOTH_IS_CONNECT);
+			            break;
+			        case BluetoothAdapter.STATE_TURNING_ON:
+			            Log.d(TAG, "STATE_TURNING_ON 手机蓝牙正在开启");
+			            break;
+			    }
+			}
+		}
+		
+	};
 
 	BroadcastReceiver MyWifiBroadcastRecever = new BroadcastReceiver() {
 		@Override
@@ -374,13 +419,13 @@ public class BaseActivity extends Activity {
 		Comments.VOLUME_DIALOG_SHOW = true;
 	}
 
-	private void showBlueToothIcon() {
+	/*private void showBlueToothIcon() {
 		if (Comments.BLUETOOTH_OPEN) {
 			mIvBlueTooth.setVisibility(View.VISIBLE);
 		} else {
-			mIvBlueTooth.setVisibility(View.VISIBLE);
+			mIvBlueTooth.setVisibility(View.GONE);
 		}
-	}
+	}*/
 	 
 	  private BroadcastReceiver usbBroadCastReceiver = new  BroadcastReceiver(){
 		      @Override

@@ -13,6 +13,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -177,7 +178,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}
 		setSlectedIv(Comments.MAIN_POSITION);
 	}
-
+	
 	@Override
 	protected void onDestroy() {
 		Log.i(TAG, "----MainActivity--onDestroy----");

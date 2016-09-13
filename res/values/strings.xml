@@ -176,5 +176,9 @@
      <string name="forget_password_select_checkbox">请选择恢复初始密码！</string>
      <string name="forget_password_check_code_error">出厂校验码错误！</string>
      <string name="forget_password_recover_init_success">恢复初始密码成功！</string>
+     
+     <string name="system_mode_eyeshield">护眼模式</string>
+     <string name="system_mode_standard">标准模式</string>
+     <string name="system_mode_hd">高清模式</string>
 
 </resources>

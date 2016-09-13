@@ -183,45 +183,11 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/time_setting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="232dp"
-        android:layout_marginTop="400dp"
-        android:orientation="horizontal" >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="时间日期: "
-            android:textColor="@color/black"
-            android:textSize="40sp" />
-
-        <RadioButton
-            android:id="@+id/time_auto_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="自动设置"
-            android:textColor="@color/black"
-            android:textSize="40sp" />
-
-        <RadioButton
-            android:id="@+id/time_manual_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="手动设置"
-            android:textColor="@color/black"
-            android:textSize="40sp" />
-    </RadioGroup>
-
-    <RadioGroup
         android:id="@+id/starting_up_sound_setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="455dp"
+        android:layout_marginTop="400dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -278,7 +244,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="232dp"
-        android:layout_marginTop="510dp"
+        android:layout_marginTop="455dp"
         android:orientation="horizontal" >
 
         <TextView
