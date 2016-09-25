@@ -47,6 +47,7 @@ public class PasswordInputDialog extends Dialog implements
 	public void onWindowFocusChanged(boolean hasFocus) {
 
 		initView();
+		
 	}
 
 	private void initView() {

@@ -35,7 +35,6 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	private TextView mPatriarchMode; 
 	private RadioGroup mWIFISetting;
 	private RadioGroup mBluetoothSetting;
-	private RadioGroup mTimeSetting;
 	private RadioGroup mSoundSetting;
 	private TextView mPasswordManager;
 	private TextView mEnterSystemSetting;
@@ -63,7 +62,6 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		mDisplaySetting.setOnCheckedChangeListener(this);
 		mWIFISetting.setOnCheckedChangeListener(this);
 		mBluetoothSetting.setOnCheckedChangeListener(this);
-		mTimeSetting.setOnCheckedChangeListener(this);
 		mSoundSetting.setOnCheckedChangeListener(this);
 		mAppManager = (TextView) findViewById(R.id.app_manager);
 		mAppManager.setOnClickListener(this);
