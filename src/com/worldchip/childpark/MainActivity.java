@@ -468,9 +468,17 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			this.action = action;
 			this.url = url;
 		}
-
 	}
-
+	
+	 /*@Override
+	    public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    	if (keyCode == KeyEvent.KEYCODE_BACK) {
+	    		moveTaskToBack(false);
+	    		return true;
+	    	}
+	    	return super.onKeyDown(keyCode, event);
+	   }
+*/
 	private Handler mMyHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {

@@ -58,9 +58,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/selector_version_backbutton"
-        android:textSize="50sp"
-        android:textColor="@color/white"
-        android:text="@string/version_info_back_btn"/>
+        android:text="返回"
+        android:textSize="40sp"
+        android:background="@drawable/selector_version_backbutton"/>
 
 </LinearLayout>

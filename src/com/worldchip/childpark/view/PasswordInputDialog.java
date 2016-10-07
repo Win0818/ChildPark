@@ -5,10 +5,12 @@ import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.worldchip.childpark.ForgetPasswordActivity;
@@ -23,7 +25,8 @@ public class PasswordInputDialog extends Dialog implements
 	private static final String TAG = "--PasswordInputDialog--";
 	private PasswordValidateListener mListener = null;
 	private EditText mPwdEditText;
-	private PasswordInputDialog mPasswordInputDialog = null;
+	private static Typeface mTypeface;
+	private static PasswordInputDialog mPasswordInputDialog = null;
 	public PasswordInputDialog(Context context) {
 		super(context);
 		mContext = context;
@@ -37,10 +40,10 @@ public class PasswordInputDialog extends Dialog implements
 	public static PasswordInputDialog createDialog(Context context) {
 		passwordInputDialog = new PasswordInputDialog(context,
 				R.style.password_dialog_style);
-		passwordInputDialog.setContentView(R.layout.enter_password_layout);
+		passwordInputDialog.setContentView(R.layout.enter_password_layout_2);
 		passwordInputDialog.getWindow().getAttributes().gravity = Gravity.CENTER;
 		passwordInputDialog.setCancelable(true);
-
+		mTypeface = Typeface.createFromAsset(context.getAssets(), "Droidhuakangbaoti.TTF");
 		return passwordInputDialog;
 	}
 
@@ -54,8 +57,8 @@ public class PasswordInputDialog extends Dialog implements
 		if (passwordInputDialog == null) {
 			return;
 		}
-		
-
+		TextView inputPasswordTitle = (TextView)passwordInputDialog.findViewById(R.id.input_password_title);
+		inputPasswordTitle.setTypeface(mTypeface);
 		passwordInputDialog.findViewById(R.id.password_cancel_btn)
 				.setOnClickListener(this);
 		passwordInputDialog.findViewById(R.id.password_enter_btn)
@@ -71,7 +74,6 @@ public class PasswordInputDialog extends Dialog implements
 	public void onClick(View view) {
 		// TODO Auto-generated method stub
 		switch (view.getId()) {
-	
 		case R.id.password_cancel_btn:
 			dismissDialog(false);
 			break;

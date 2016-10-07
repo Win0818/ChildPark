@@ -13,6 +13,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.ContentObserver;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.media.Ringtone;
@@ -22,6 +23,7 @@ import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -31,6 +33,7 @@ import android.widget.TextView;
 
 import com.worldchip.childpark.Comments.Comments;
 import com.worldchip.childpark.Comments.MySharePreData;
+import com.worldchip.childpark.application.MyApplication;
 import com.worldchip.childpark.dialog.VolumeControlDialog;
 import com.worldchip.childpark.util.net.HttpUtils;
 
@@ -88,12 +91,14 @@ public class BaseActivity extends Activity {
 				
 			case Comments.BLUETOOTH_IS_CONNECT:
 				if (mIvBlueTooth != null) {
+					Log.d(TAG, "BLUETOOTH_IS_CONNECT 手机蓝牙开启 View.VISIBLE");
 					mIvBlueTooth.setVisibility(View.VISIBLE);
 				}
 				Comments.BLUETOOTH_OPEN = true;
-
+				break;
 			case Comments.BLUETOOTH_NOT_CONNECT:
 				if (mIvBlueTooth != null) {
+					Log.d(TAG, "BLUETOOTH_IS_CONNECT 手机蓝牙开启 View.GONE");
 					mIvBlueTooth.setVisibility(View.GONE);
 				}
 				Comments.BLUETOOTH_OPEN = false;
@@ -145,6 +150,14 @@ public class BaseActivity extends Activity {
 			mBetteryIcon.setImageResource(R.drawable.top_bettery_icon0_new);
 		}
 	}
+	@Override
+	protected void onResume() {
+		super.onResume();
+		
+		MyApplication.getApplicationContex().getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS), true,
+                mBrightnessObserver);
+	}
 
 	private void BetteryCharge() {
 		setBetteryText();
@@ -179,6 +192,15 @@ public class BaseActivity extends Activity {
 		mDateFormat = new SimpleDateFormat("yyyy年MM月dd日  E HH:mm");
 		mTvBettery.setText(Comments.BETTERY_LEVER_INFO);
 		
+		int modle = MySharePreData.GetIntData(MyApplication.getApplicationContex(), 
+				"my_system_setting", "display_setting");
+		if (modle == 0) {
+			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_eyeshield));
+		} else if ( modle == 1) {
+			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_standard));
+		} else if (modle == 2) {
+			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_hd));
+		}
 		//showBlueToothIcon();
 		registerBluetooth();
 		registerWifi();
@@ -245,7 +267,9 @@ public class BaseActivity extends Activity {
 			if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
 			    int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
 			            BluetoothAdapter.ERROR);
+			    Log.d(TAG, "STATE ：" + state);
 			    switch (state) {
+			       
 			        case BluetoothAdapter.STATE_OFF:
 			            Log.d(TAG, "STATE_OFF 手机蓝牙关闭");
 			            mHandler.removeMessages(Comments.BLUETOOTH_NOT_CONNECT);
@@ -426,6 +450,24 @@ public class BaseActivity extends Activity {
 			mIvBlueTooth.setVisibility(View.GONE);
 		}
 	}*/
+	private ContentObserver mBrightnessObserver = new ContentObserver(new Handler()) {
+        @Override
+        public void onChange(boolean selfChange) {
+        	int mBrightnessVolume = Settings.System.getInt(
+    				BaseActivity.this.getContentResolver(),
+    				Settings.System.SCREEN_BRIGHTNESS, -1);
+        	Log.i(TAG, "selfChange:  "  + selfChange + "::::" + mBrightnessVolume);
+        	
+        	 /* int status = Tools.getBrightnessMode(BookActivity.this, 0);
+              if (status == 0) {
+                  // 状态为：0表示系统亮度为手动修改
+                  UpdateSystemBrightness();
+              } else {
+                  // 表示系统亮度为自动调节（不做处理）
+              }*/
+            //
+        }
+	};
 	 
 	  private BroadcastReceiver usbBroadCastReceiver = new  BroadcastReceiver(){
 		      @Override

@@ -1,16 +1,12 @@
 package com.worldchip.childpark;
 
 
-import com.worldchip.childpark.Comments.MySharePreData;
-import com.worldchip.childpark.application.MyApplication;
-import com.worldchip.childpark.util.Utils;
-import com.worldchip.childpark.view.PasswordInputDialog;
-import com.worldchip.childpark.view.PasswordInputDialog.PasswordValidateListener;
-
 import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -21,23 +17,33 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.worldchip.childpark.Comments.MySharePreData;
+import com.worldchip.childpark.application.MyApplication;
+import com.worldchip.childpark.util.Utils;
+import com.worldchip.childpark.view.PasswordInputDialog;
+import com.worldchip.childpark.view.PasswordInputDialog.PasswordValidateListener;
 
 public class MySystemSetupActivity extends BaseActivity implements OnClickListener,
-						OnCheckedChangeListener{
+						OnCheckedChangeListener,CompoundButton.OnCheckedChangeListener{
 	
 	private RadioGroup mDisplaySetting;
-	private TextView mAppManager;
-	private TextView mPatriarchMode; 
-	private RadioGroup mWIFISetting;
-	private RadioGroup mBluetoothSetting;
-	private RadioGroup mSoundSetting;
-	private TextView mPasswordManager;
-	private TextView mEnterSystemSetting;
+	private ImageView mAppManager;
+	private ImageView mPatriarchMode; 
+	private ImageView mStartSoundImg;
+	private ImageView mWifiImg;
+	private ImageView mBltetoothImg;
+	private CheckBox mWIFISetting;
+	private CheckBox mBluetoothSetting;
+	private CheckBox mSoundSetting;
+	private ImageView mPasswordManager;
+	private ImageView mEnterSystemSetting;
 	private Button mSystemSettingBack;
 	private WifiManager wifiManager;
 	private BluetoothAdapter mBluetoothAdapter;
@@ -46,7 +52,7 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_mysystemsetup);
+		setContentView(R.layout.activity_mysystemsetup_2);
 		
 		initData();
 		initView();
@@ -55,57 +61,86 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	
 	private void initView() {
 		mDisplaySetting = (RadioGroup) findViewById(R.id.display_setting);
-		mWIFISetting = (RadioGroup) findViewById(R.id.wifi_setting);
-		mBluetoothSetting = (RadioGroup) findViewById(R.id.bluetooth_setting);
-		mSoundSetting = (RadioGroup) findViewById(R.id.starting_up_sound_setting);
+		//mWIFISetting = (RadioGroup) findViewById(R.id.wifi_setting);
+		//mBluetoothSetting = (RadioGroup) findViewById(R.id.bluetooth_setting);
+		//mSoundSetting = (RadioGroup) findViewById(R.id.starting_up_sound_setting);
+		mWIFISetting = (CheckBox) findViewById(R.id.wifi_switch);
+		mBluetoothSetting = (CheckBox) findViewById(R.id.bluetooth_switch);
+		mSoundSetting = (CheckBox) findViewById(R.id.start_sound_switch);
 		
 		mDisplaySetting.setOnCheckedChangeListener(this);
 		mWIFISetting.setOnCheckedChangeListener(this);
 		mBluetoothSetting.setOnCheckedChangeListener(this);
 		mSoundSetting.setOnCheckedChangeListener(this);
-		mAppManager = (TextView) findViewById(R.id.app_manager);
+		mAppManager = (ImageView) findViewById(R.id.app_manager);
 		mAppManager.setOnClickListener(this);
-		mPasswordManager = (TextView)findViewById(R.id.password_manager);
-		mEnterSystemSetting = (TextView)findViewById(R.id.enter_system_setting);
+		mPasswordManager = (ImageView)findViewById(R.id.password_manager);
+		mEnterSystemSetting = (ImageView)findViewById(R.id.enter_system_setting);
 		mPasswordManager.setOnClickListener(this);
 		mEnterSystemSetting.setOnClickListener(this);
-		mPatriarchMode = (TextView)findViewById(R.id.patriarch_mode);
+		mPatriarchMode = (ImageView)findViewById(R.id.patriarch_mode);
 		mPatriarchMode.setOnClickListener(this);
 		mSystemSettingBack = (Button) findViewById(R.id.system_setting_backbtn);
 		mSystemSettingBack.setOnClickListener(this);
 		
-		RadioButton wifiOpen = (RadioButton) findViewById(R.id.wifi_open);
-		RadioButton wifiClose = (RadioButton) findViewById(R.id.wifi_close);
+		mStartSoundImg = (ImageView) findViewById(R.id.start_sound_imageview);
+		mWifiImg = (ImageView) findViewById(R.id.wifi_imageview);
+		mBltetoothImg = (ImageView) findViewById(R.id.bluetooth_imageview);
 		
-		RadioButton bluetoothOpen = (RadioButton) findViewById(R.id.bluetooth_open);
-		RadioButton bluetoothClose = (RadioButton) findViewById(R.id.bluetooth_close);
+	//	RadioButton wifiOpen = (RadioButton) findViewById(R.id.wifi_open);
+	//	RadioButton wifiClose = (RadioButton) findViewById(R.id.wifi_close);
 		
-		wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		// bluetoothOpen = (RadioButton) findViewById(R.id.bluetooth_open);
+		//RadioButton bluetoothClose = (RadioButton) findViewById(R.id.bluetooth_close);
+	//
 		
-		if (wifiManager.isWifiEnabled()) {
-			wifiOpen.setChecked(true);
-		} else {
-			wifiClose.setChecked(true);
-		}
-		if (mBluetoothAdapter.isEnabled()) {
-			bluetoothOpen.setChecked(true);
-		} else {
-			bluetoothClose.setChecked(true);
-		}
 		
 	}
 	
 	private void initData() {
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-		mBluetoothAdapter.enable();
-		mBluetoothAdapter.disable();
+		/*mBluetoothAdapter.enable();
+		mBluetoothAdapter.disable();*/
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		initBaseActivity();
+		refreshView();
+	}
+	
+	private void refreshView() {
+		wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+		if (wifiManager.isWifiEnabled()) {
+			mWIFISetting.setChecked(true);
+		} else {
+			mWIFISetting.setChecked(false);
+		}
+		if (mBluetoothAdapter.isEnabled()) {
+			mBluetoothSetting.setChecked(true);
+		} else {
+			mBluetoothSetting.setChecked(false); 
+		}
 		
+		if (MySharePreData.GetBooleanTrueData(MyApplication.getApplicationContex(), 
+				"child_park", "open_sound")) {
+			mSoundSetting.setChecked(true);
+			mStartSoundImg.setBackgroundResource(R.drawable.close);
+		} else {
+			mSoundSetting.setChecked(false);
+			mStartSoundImg.setBackgroundResource(R.drawable.open_hover);
+		}
+		if (mWIFISetting.isChecked()) {
+			mWifiImg.setBackgroundResource(R.drawable.close);
+		} else {
+			mWifiImg.setBackgroundResource(R.drawable.open_hover);
+		}
+		if (mBluetoothSetting.isChecked()) {
+			mBltetoothImg.setBackgroundResource(R.drawable.close);
+		} else {
+			mBltetoothImg.setBackgroundResource(R.drawable.open_hover);
+		}
 	}
 	
 	@Override
@@ -113,11 +148,12 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		switch (v.getId()) {
 		case R.id.app_manager:
 			Log.i(TAG, "R.id.app_manager");
-			AllAppActivity.start(this);
+			 showPasswordInputView(0);
+			//AllAppActivity.start(this);
 			break;
 		case R.id.patriarch_mode:
 			Log.i(TAG, "R.id.patriarch_mode");
-			 showPasswordInputView();
+			 showPasswordInputView(1);
 			break;
 		case R.id.password_manager:
 			PasswordManagerActivity.start(MySystemSetupActivity.this);
@@ -136,30 +172,89 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	}
 	
 	@Override
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		switch (buttonView.getId()) {
+		case R.id.start_sound_switch:
+			Log.i(TAG, "R.id.start_sound_switch");
+			if (isChecked) {
+				MySharePreData.SetBooleanData(this, "child_park", "open_sound", true);
+				mStartSoundImg.setBackgroundResource(R.drawable.close);
+			} else {
+				MySharePreData.SetBooleanData(this, "child_park", "open_sound", false);
+				mStartSoundImg.setBackgroundResource(R.drawable.open_hover);
+			}
+			
+			break;
+		case R.id.wifi_switch:
+			Log.i(TAG, "R.id.wifi_switch");
+			if (isChecked) {
+				if (wifiManager != null) { 
+					wifiManager.setWifiEnabled(true);
+					mWifiImg.setBackgroundResource(R.drawable.close);
+				}
+			} else {
+				if (wifiManager != null) {
+					wifiManager.setWifiEnabled(false);
+					mWifiImg.setBackgroundResource(R.drawable.open_hover);
+				}
+			}
+			break;
+		case R.id.bluetooth_switch:
+			Log.i(TAG, "R.id.bluetooth_switch");
+			if (isChecked) {
+				if (mBluetoothAdapter != null) {
+					Log.i(TAG, "R.id.bluetooth_switch enable");
+					mBluetoothAdapter.enable();
+					mBltetoothImg.setBackgroundResource(R.drawable.close);
+				}
+			} else {
+				if (mBluetoothAdapter != null) {
+					Log.i(TAG, "R.id.bluetooth_switch disable");
+					mBluetoothAdapter.disable();
+					mBltetoothImg.setBackgroundResource(R.drawable.open_hover);
+				}
+			}
+			break;
+		default:
+			break;
+		}
+		
+	}
+	private void setBrightness(int index) {
+		Uri uri = android.provider.Settings.System
+				.getUriFor(Settings.System.SCREEN_BRIGHTNESS);
+		ContentResolver resolver = MySystemSetupActivity.this
+				.getContentResolver();
+		android.provider.Settings.System.putInt(resolver,
+				Settings.System.SCREEN_BRIGHTNESS, index);
+		resolver.notifyChange(uri, null);
+	}
+	
+	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 		switch (checkedId) {
 		case R.id.eyeshield_mode:
 			setScreenMode(0);
 			Log.i(TAG, "R.id.eyeshield_mode");
-			MySharePreData.SetIntData(this, "my_system_setting", "display_setting", 0);
-			setScreenBrightness(30);
+			MySharePreData.SetIntData(MyApplication.getApplicationContex(), "my_system_setting", "display_setting", 0);
+			setBrightness(100);
 			mTvMode.setText(this.getResources().getString(R.string.system_mode_eyeshield));
 			break;
 		case R.id.standard_mode:
 			setScreenMode(0);
 			Log.i(TAG, "R.id.standard_mode");
-			MySharePreData.SetIntData(this, "my_system_setting", "display_setting", 1);
-			setScreenBrightness(100);
-			mTvMode.setText(this.getResources().getString(R.string.system_mode_standard));
+			MySharePreData.SetIntData(MyApplication.getApplicationContex(), "my_system_setting", "display_setting", 1);
+			setBrightness(200);
+			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_standard));
 			break;
 		case R.id.hd_mode:
 			setScreenMode(0);
 			Log.i(TAG, "R.id.hd_mode");
-			MySharePreData.SetIntData(this, "my_system_setting", "display_setting", 2);
-			setScreenBrightness(180);
-			mTvMode.setText(this.getResources().getString(R.string.system_mode_hd));
+			MySharePreData.SetIntData(MyApplication.getApplicationContex(), "my_system_setting", "display_setting", 2);
+			setBrightness(250);
+			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_hd));
 			break;
-		case R.id.wifi_open:
+		/*case R.id.wifi_open:
 			Log.i(TAG, "R.id.wifi_open");
 			if (wifiManager != null) {
 				wifiManager.setWifiEnabled(true);
@@ -186,7 +281,7 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 			break;
 		case R.id.starting_up_sound_close:
 			MySharePreData.SetBooleanData(this, "child_park", "open_sound", false);
-			break;
+			break;*/
 		default:
 			break;
 		}
@@ -241,7 +336,7 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	    }
     }
 	
-	private void showPasswordInputView() {
+	private void showPasswordInputView(final int modle) {
 		if (mPasswordInputDialog != null) {
 			if (mPasswordInputDialog.isShowing()) {
 				mPasswordInputDialog.dismiss();
@@ -252,9 +347,17 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		mPasswordInputDialog.setListener(new PasswordValidateListener() {
 			@Override
 			public void onValidateComplete(boolean success) {
-				if (success) {
-					startAPP("com.android.LauncherW2_haiway");
-				}
+				
+					if (success) {
+						if (modle == 0) {
+							AllAppActivity.start(MySystemSetupActivity.this);
+						} else if (modle == 1) {
+							startAPP("com.android.settings");
+							//startAPP("com.android.LauncherW2_haiway");
+						}
+						
+					} 
+				
 			}
 		});
 		mPasswordInputDialog.show();

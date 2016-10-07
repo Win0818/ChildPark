@@ -87,7 +87,7 @@ public class AllAppActivity extends Activity {
 		IntentFilter filter = new IntentFilter(Intent.ACTION_PACKAGE_REMOVED);
 		filter.addDataScheme("package");
 		this.registerReceiver(mUninstallReceiver, filter);
-		showPasswordInputView();
+		//showPasswordInputView();
 		initData();
 	}
 

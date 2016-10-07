@@ -149,9 +149,9 @@
      <string name="usb_mount">有USB设备接入</string>
      
 
-     <string name="original_password">请输入当前密码：</string>
-     <string name="default_password">请您输入新密码：</string>
-     <string name="confirm_password">请您再次输入密码：</string>
+     <string name="original_password">请输入当前密码</string>
+     <string name="default_password">请您输入新密码</string>
+     <string name="confirm_password">请您再次输入密码</string>
      <string name="original_password_not_empty">原始密码不能为空！</string>
      <string name="new_password_not_empty">新密码不能为空！</string>
      <string name="confirm_password_not_empty">请再次输入新密码！</string>

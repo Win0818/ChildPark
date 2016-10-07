@@ -1,11 +1,9 @@
 package com.worldchip.childpark;
 
 
-import com.worldchip.childpark.Comments.MySharePreData;
-import com.worldchip.childpark.util.Utils;
-
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,6 +11,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
+import com.worldchip.childpark.Comments.MySharePreData;
+import com.worldchip.childpark.application.MyApplication;
+import com.worldchip.childpark.util.Utils;
 
 public class PasswordManagerActivity extends BaseActivity implements OnClickListener{
 	
@@ -21,11 +24,12 @@ public class PasswordManagerActivity extends BaseActivity implements OnClickList
 	private EditText mConfirmPassword;
 	private Button mConfirm;
 	private Button mBack;
+	private Typeface mTypeface;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_passwordmanager);
+		setContentView(R.layout.activity_password_manager_2);
 		initView();
 		
 	}
@@ -35,6 +39,9 @@ public class PasswordManagerActivity extends BaseActivity implements OnClickList
 		mConfirmPassword = (EditText) findViewById(R.id.update_manager_password);
 		mConfirm = (Button) findViewById(R.id.password_manager__confirm);
 		mBack = (Button) findViewById(R.id.password_manager_back);
+		TextView title = (TextView) findViewById(R.id.password_manager_title);
+		mTypeface = Typeface.createFromAsset(MyApplication.getApplicationContex().getAssets(), "Droidhuakangbaoti.TTF");
+		title.setTypeface(mTypeface);
 		mConfirm.setOnClickListener(this);
 		mBack.setOnClickListener(this);
 		

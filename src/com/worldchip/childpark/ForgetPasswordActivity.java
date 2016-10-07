@@ -1,14 +1,17 @@
 package com.worldchip.childpark;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.worldchip.childpark.Comments.MySharePreData;
+import com.worldchip.childpark.application.MyApplication;
 import com.worldchip.childpark.util.Utils;
 
 public class ForgetPasswordActivity extends BaseActivity implements OnClickListener{
@@ -16,12 +19,13 @@ public class ForgetPasswordActivity extends BaseActivity implements OnClickListe
 	private CheckBox mCheckBox;
 	private EditText mEditText;
 	private Context ctx;
+	private Typeface mTypeface;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.forget_password_activity);
+		setContentView(R.layout.activity_forget_password);
 		ctx = this;
 		initView();
 		
@@ -29,16 +33,19 @@ public class ForgetPasswordActivity extends BaseActivity implements OnClickListe
 	@Override
 	protected void onResume() {
 		super.onResume();
-		
 		initBaseActivity();
+		
 	}
 
 	private void initView() {
+		MySharePreData.GetIntData(MyApplication.getApplicationContex(), "my_system_setting", "display_setting");
 		mCheckBox = (CheckBox) findViewById(R.id.recover_init_password);
 		mEditText = (EditText) findViewById(R.id.leave_factory_check_code);
 		findViewById(R.id.forget_password__confirm).setOnClickListener(this);
 		findViewById(R.id.forget_password_back).setOnClickListener(this);
-		
+		TextView title = (TextView) findViewById(R.id.forget_password_title);
+		mTypeface = Typeface.createFromAsset(MyApplication.getApplicationContex().getAssets(), "Droidhuakangbaoti.TTF");
+		title.setTypeface(mTypeface);
 	}
 	
 	@Override
