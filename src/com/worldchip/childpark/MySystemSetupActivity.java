@@ -34,6 +34,7 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 						OnCheckedChangeListener,CompoundButton.OnCheckedChangeListener{
 	
 	private RadioGroup mDisplaySetting;
+	private RadioButton mEyeShieled, mStanderd, mHD;
 	private ImageView mAppManager;
 	private ImageView mPatriarchMode; 
 	private ImageView mStartSoundImg;
@@ -61,9 +62,9 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	
 	private void initView() {
 		mDisplaySetting = (RadioGroup) findViewById(R.id.display_setting);
-		//mWIFISetting = (RadioGroup) findViewById(R.id.wifi_setting);
-		//mBluetoothSetting = (RadioGroup) findViewById(R.id.bluetooth_setting);
-		//mSoundSetting = (RadioGroup) findViewById(R.id.starting_up_sound_setting);
+		mEyeShieled = (RadioButton) findViewById(R.id.eyeshield_mode);
+		mStanderd = (RadioButton) findViewById(R.id.standard_mode);
+		mHD = (RadioButton) findViewById(R.id.hd_mode);
 		mWIFISetting = (CheckBox) findViewById(R.id.wifi_switch);
 		mBluetoothSetting = (CheckBox) findViewById(R.id.bluetooth_switch);
 		mSoundSetting = (CheckBox) findViewById(R.id.start_sound_switch);
@@ -141,6 +142,19 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		} else {
 			mBltetoothImg.setBackgroundResource(R.drawable.open_hover);
 		}
+		
+		int mBrightnessVolume = Settings.System.getInt(
+				MySystemSetupActivity.this.getContentResolver(),
+				Settings.System.SCREEN_BRIGHTNESS, -1);
+    	if (mBrightnessVolume >= 0 && mBrightnessVolume <= 100) {
+    		mEyeShieled.setChecked(true);
+    	} else if (mBrightnessVolume > 100 && mBrightnessVolume <= 200) {
+    		mStanderd.setChecked(true);
+    	} else if (mBrightnessVolume > 200 && mBrightnessVolume <= 255) {
+    		mHD.setChecked(true);
+    	}
+		
+		
 	}
 	
 	@Override

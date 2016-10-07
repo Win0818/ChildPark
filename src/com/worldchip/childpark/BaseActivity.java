@@ -201,7 +201,7 @@ public class BaseActivity extends Activity {
 		} else if (modle == 2) {
 			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_hd));
 		}
-		//showBlueToothIcon();
+		showBlueToothIcon();
 		registerBluetooth();
 		registerWifi();
 		registerBettery();
@@ -443,13 +443,13 @@ public class BaseActivity extends Activity {
 		Comments.VOLUME_DIALOG_SHOW = true;
 	}
 
-	/*private void showBlueToothIcon() {
+	private void showBlueToothIcon() {
 		if (Comments.BLUETOOTH_OPEN) {
 			mIvBlueTooth.setVisibility(View.VISIBLE);
 		} else {
 			mIvBlueTooth.setVisibility(View.GONE);
 		}
-	}*/
+	}
 	private ContentObserver mBrightnessObserver = new ContentObserver(new Handler()) {
         @Override
         public void onChange(boolean selfChange) {
@@ -457,6 +457,25 @@ public class BaseActivity extends Activity {
     				BaseActivity.this.getContentResolver(),
     				Settings.System.SCREEN_BRIGHTNESS, -1);
         	Log.i(TAG, "selfChange:  "  + selfChange + "::::" + mBrightnessVolume);
+        	
+        	if (mBrightnessVolume >= 0 && mBrightnessVolume <= 100) {
+        		mTvMode.setText(MyApplication.getApplicationContex().getResources().
+        				getString(R.string.system_mode_eyeshield));
+        		MySharePreData.SetIntData(MyApplication.getApplicationContex(), 
+        				"my_system_setting", "display_setting", 0);
+        	} else if (mBrightnessVolume > 100 && mBrightnessVolume <= 200) {
+        		mTvMode.setText(MyApplication.getApplicationContex().getResources().
+        				getString(R.string.system_mode_standard));
+        		
+        		MySharePreData.SetIntData(MyApplication.getApplicationContex(),
+        				"my_system_setting", "display_setting", 1);
+        	} else if (mBrightnessVolume > 200 && mBrightnessVolume <= 255) {
+        		mTvMode.setText(MyApplication.getApplicationContex().getResources().
+        				getString(R.string.system_mode_hd));
+        		
+        		MySharePreData.SetIntData(MyApplication.getApplicationContex(), 
+        				"my_system_setting", "display_setting", 2);
+        	}
         	
         	 /* int status = Tools.getBrightnessMode(BookActivity.this, 0);
               if (status == 0) {
@@ -481,7 +500,6 @@ public class BaseActivity extends Activity {
 		       System.out.println("---usbBroadCastReceiver--"+Comments.USB_IS_MONT);
 		      }
 		 };
-	
 
 	
 	@Override

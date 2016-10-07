@@ -69,7 +69,7 @@
             android:contentDescription="@string/image_null"
             android:layout_gravity="center_vertical"
             android:layout_marginRight="20dp"
-             android:visibility="visible"/>
+            />
         
            <ImageView
             android:id="@+id/iv_topbar_wifi"
