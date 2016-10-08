@@ -48,7 +48,8 @@ public class BaseActivity extends Activity {
 	private SimpleDateFormat mDateFormat = null;
 	private Timer mTimer = null;
 
-	private ImageView mIvWifi, mIvBlueTooth, mBetteryIcon;
+	private ImageView mIvWifi, mBetteryIcon;
+	public ImageView mIvBlueTooth;
 	private TextView mTvTime, mTvBettery;
 	public TextView mTvMode;
 	private String mBetteryInfo;
@@ -68,6 +69,8 @@ public class BaseActivity extends Activity {
 	private String mMessageTxt;
 
 	private boolean isPlayActivity = false;
+	
+	private BluetoothAdapter mBluetoothAdapter;
 	
 	@SuppressLint("HandlerLeak")
 	public Handler mHandler = new Handler() {
@@ -157,6 +160,8 @@ public class BaseActivity extends Activity {
 		MyApplication.getApplicationContex().getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS), true,
                 mBrightnessObserver);
+		
+		
 	}
 
 	private void BetteryCharge() {
@@ -200,6 +205,15 @@ public class BaseActivity extends Activity {
 			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_standard));
 		} else if (modle == 2) {
 			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_hd));
+		}
+		
+		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+		if (mBluetoothAdapter.isEnabled()) {
+			Log.d(TAG, "mBluetoothAdapter  isEnabled");
+			mIvBlueTooth.setVisibility(View.VISIBLE);
+		} else {
+			Log.d(TAG, "mBluetoothAdapter  DisEnabled");
+			mIvBlueTooth.setVisibility(View.GONE);
 		}
 		showBlueToothIcon();
 		registerBluetooth();
@@ -264,12 +278,12 @@ public class BaseActivity extends Activity {
 		@Override
 		public void onReceive(Context context, Intent intent) {
 			String action = intent.getAction();
+			Log.d(TAG, "action ：" + action);
 			if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
 			    int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
 			            BluetoothAdapter.ERROR);
 			    Log.d(TAG, "STATE ：" + state);
 			    switch (state) {
-			       
 			        case BluetoothAdapter.STATE_OFF:
 			            Log.d(TAG, "STATE_OFF 手机蓝牙关闭");
 			            mHandler.removeMessages(Comments.BLUETOOTH_NOT_CONNECT);
