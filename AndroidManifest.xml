@@ -35,9 +35,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.worldchip.childpark.VideoPlayerActivity"
-             android:screenOrientation="landscape"></activity>
-        
+        <activity 
+            android:name="com.worldchip.childpark.VideoPlayerActivity"
+            android:screenOrientation="landscape">
+             <intent-filter >
+               <action android:name="android.intent.action.VIEW"></action>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="video/mp4"/>
+             </intent-filter>
+        </activity>
         <activity android:name="com.worldchip.childpark.AdplayerActivity"
              android:screenOrientation="landscape"></activity>
         

@@ -4,21 +4,11 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.worldchip.childpark.Comments.Comments;
-import com.worldchip.childpark.adapter.MyVideoAdapter;
-import com.worldchip.childpark.entity.VideoInfo;
-import com.worldchip.childpark.util.MySdCardDataUtil;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -27,6 +17,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.worldchip.childpark.Comments.Comments;
+import com.worldchip.childpark.adapter.MyVideoAdapter;
+import com.worldchip.childpark.entity.VideoInfo;
+import com.worldchip.childpark.util.MySdCardDataUtil;
 
 public class LocalVideoShowActivity  extends BaseActivity implements OnItemClickListener, OnItemSelectedListener{
 	private ImageView mCategroyImgIv;
@@ -139,7 +134,8 @@ public class LocalVideoShowActivity  extends BaseActivity implements OnItemClick
     	    setVideoCount(this.mInfos, (mPosition+1));
     	    setVideoSize(mInfos, mPosition);
     	}
-		selectOneVideo();  
+		//selectOneVideo();  
+    	 selectOneVideo_2(position);
 	} 
    
     
@@ -173,7 +169,7 @@ public class LocalVideoShowActivity  extends BaseActivity implements OnItemClick
     
     private void setVideoProperty(List<VideoInfo> infos){
     	if(infos != null){
-    		mVideoPropertyTv.setText(getString(R.string.video_property)+"ÊÓÆµ");
+    		mVideoPropertyTv.setText(getString(R.string.video_property)+"ï¿½ï¿½Æµ");
     	}
     }
     
@@ -190,6 +186,27 @@ public class LocalVideoShowActivity  extends BaseActivity implements OnItemClick
     		String size = MySdCardDataUtil.FormetFileSize(infos.get(selectInt).getFileSize());
     		mViedeoSizeTV.setText(getString(R.string.video_size)+size);
     	}
+    }
+    
+    private void selectOneVideo_2(int index) {
+    	Comments.MOV_NAME = mInfos.get(mPosition).getmVideoName();
+		Comments.HAVE_WATCH_VIDEO = true;
+    	Intent intent = new Intent(Intent.ACTION_VIEW);
+    	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("oneshot", 0);
+        intent.putExtra("configchange", 0);
+        File file = new File(mVideoAddressList.get(index) /*+ "/" + mVideoNameList.get(index)*/);
+        Log.d("Wing", "file::: " + file);
+        Uri uri = Uri.fromFile(file);
+        intent.setDataAndType(uri, "video/*");
+        
+        Bundle  bundle = new Bundle();
+		  bundle.putInt("position", mPosition);
+		  bundle.putStringArrayList("video_address", mVideoAddressList);
+		  bundle.putStringArrayList("video_name", mVideoNameList);
+		  intent.putExtras(bundle);
+        startActivity(intent);
+       // return intent;
     }
     
     

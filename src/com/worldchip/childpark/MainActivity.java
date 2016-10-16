@@ -410,8 +410,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 				return false;
 			case 66:
 				if (0 <= mPosition && mPosition <= 5) {
-					//skipLocalVideoListActivity(mPosition);
-					openVstapp(getApplicationContext());
+					skipLocalVideoListActivity(mPosition);
+					//openVstapp(getApplicationContext());
 				} else {
 					switch (mPosition) {
 					case 6:

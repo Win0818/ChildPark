@@ -349,6 +349,18 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 	    	Utils.showToastMessage(this, "没有安装");
 	    }
     }
+	/**
+	 * 启动公版桌面
+	 */
+	
+	private void launchAndroid() {
+		Intent intent = new Intent();
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		ComponentName cn = new ComponentName("com.android.LauncherW2_haiway",
+				"com.android.LauncherW2_haiway.Launcher");
+		intent.setComponent(cn);
+		this.startActivity(intent);
+	}
 	
 	private void showPasswordInputView(final int modle) {
 		if (mPasswordInputDialog != null) {
@@ -366,7 +378,8 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 						if (modle == 0) {
 							AllAppActivity.start(MySystemSetupActivity.this);
 						} else if (modle == 1) {
-							startAPP("com.android.settings");
+							launchAndroid();
+							//startAPP("com.android.settings");
 							//startAPP("com.android.LauncherW2_haiway");
 						}
 						
