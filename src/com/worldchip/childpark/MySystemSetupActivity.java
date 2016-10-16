@@ -337,6 +337,18 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 		settingIntent.setAction("android.intent.action.VIEW");
 		startActivity(settingIntent);
 	}
+	/**
+	 * 启动公版桌面
+	 */
+	
+	private void launchAndroid() {
+		Intent intent = new Intent();
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		ComponentName cn = new ComponentName("com.android.LauncherW2_haiway",
+				"com.android.LauncherW2_haiway.Launcher");
+		intent.setComponent(cn);
+		this.startActivity(intent);
+	}
 	
     /**
      * 启动一个app
