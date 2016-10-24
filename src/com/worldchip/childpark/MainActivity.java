@@ -418,12 +418,16 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 				}
 				setSlectedIv(mPosition);
 				return false;
-			case 66:
-				if (0 <= mPosition && mPosition <= 5) {
+			case KeyEvent.KEYCODE_ENTER: //66
+				if (0 <= mPosition && mPosition < 5) {
 					skipLocalVideoListActivity(mPosition);
 					//openVstapp(getApplicationContext());
 				} else {
 					switch (mPosition) {
+					case 5:
+						setSlectedIv(5);
+						openVstapp(getApplicationContext());
+						break;
 					case 6:
 						setSlectedIv(6);
 						//openVstapp(getApplicationContext());
