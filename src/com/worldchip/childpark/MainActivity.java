@@ -375,6 +375,16 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		settingIntent.setAction("android.intent.action.VIEW");
 		startActivity(settingIntent);
 	}
+	
+	/*@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+			
+			return true;
+		}
+		
+		return super.onKeyDown(keyCode, event);
+	}*/
 
 	@Override
 	public boolean dispatchKeyEvent(KeyEvent event) {
