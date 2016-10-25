@@ -258,14 +258,14 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 			setScreenMode(0);
 			Log.i(TAG, "R.id.standard_mode");
 			MySharePreData.SetIntData(MyApplication.getApplicationContex(), "my_system_setting", "display_setting", 1);
-			setBrightness(200);
+			setBrightness(153);
 			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_standard));
 			break;
 		case R.id.hd_mode:
 			setScreenMode(0);
 			Log.i(TAG, "R.id.hd_mode");
 			MySharePreData.SetIntData(MyApplication.getApplicationContex(), "my_system_setting", "display_setting", 2);
-			setBrightness(250);
+			setBrightness(255);
 			mTvMode.setText(MyApplication.getApplicationContex().getResources().getString(R.string.system_mode_hd));
 			break;
 		/*case R.id.wifi_open:
