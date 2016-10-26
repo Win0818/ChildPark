@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">贝雪魔盒</string>
+    <string name="app_name">贝雪儿童桌面</string>
     <string name="action_settings">Settings</string>
     <string name="add_video">正在获取视频哦\.\.\.</string>
     <string name="add_image">正在加载图片/././.</string>
@@ -86,6 +86,7 @@
     <string  name="wifi_connect_fail">Wifi连接失败，请重试!</string>
     <string  name="wifi_connect_note">请输入wifi密码</string>
     <string  name="wifi_connect_no_pass">此信号为公开信号，无密码</string>
+    <string  name="note_list_null">宝宝，该资源文件夹为空，请在此文件夹下添加视频文件哦！</string>
     
     <string name="setting_save">存储</string>
     <string name="setting_save_all">内置卡空间总量</string>

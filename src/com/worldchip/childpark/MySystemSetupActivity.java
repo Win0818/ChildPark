@@ -148,9 +148,9 @@ public class MySystemSetupActivity extends BaseActivity implements OnClickListen
 				Settings.System.SCREEN_BRIGHTNESS, -1);
     	if (mBrightnessVolume >= 0 && mBrightnessVolume <= 100) {
     		mEyeShieled.setChecked(true);
-    	} else if (mBrightnessVolume > 100 && mBrightnessVolume <= 200) {
+    	} else if (mBrightnessVolume > 100 && mBrightnessVolume <= 153) {
     		mStanderd.setChecked(true);
-    	} else if (mBrightnessVolume > 200 && mBrightnessVolume <= 255) {
+    	} else if (mBrightnessVolume > 153 && mBrightnessVolume <= 255) {
     		mHD.setChecked(true);
     	}
 		

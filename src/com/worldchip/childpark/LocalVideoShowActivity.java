@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.w3c.dom.Text;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -29,6 +31,7 @@ public class LocalVideoShowActivity  extends BaseActivity implements OnItemClick
 	private TextView  mVideoPropertyTv;
 	private TextView  mVideoTypeTv;
 	private TextView  mViedeoSizeTV;
+	private TextView  mNoteList;
 	private ListView  mVideoListView;
 	private List<VideoInfo>  mInfos;
 	private int  mCategoryInt = 0;
@@ -79,6 +82,8 @@ public class LocalVideoShowActivity  extends BaseActivity implements OnItemClick
     	mVideoTypeTv = (TextView) findViewById(R.id.tv_video_type);
     	mViedeoSizeTV = (TextView) findViewById(R.id.tv_video_size);
     	mVideoListView = (ListView) findViewById(R.id.lv_video_show_list);
+    	mNoteList = (TextView) findViewById(R.id.note_list);
+    	
     	mVideoListView.setOnItemClickListener(this);
     	mVideoListView.setOnItemSelectedListener(this);
     	
@@ -169,7 +174,7 @@ public class LocalVideoShowActivity  extends BaseActivity implements OnItemClick
     
     private void setVideoProperty(List<VideoInfo> infos){
     	if(infos != null){
-    		mVideoPropertyTv.setText(getString(R.string.video_property)+"��Ƶ");
+    		mVideoPropertyTv.setText(getString(R.string.video_property)+"Video");
     	}
     }
     
@@ -247,16 +252,21 @@ public class LocalVideoShowActivity  extends BaseActivity implements OnItemClick
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
-			if(mInfos != null){
+			if(mInfos.size() != 0){
 				setListVideodata(mInfos,false);
 				setVideoCount(mInfos,1);
 				setVideoProperty(mInfos);
 				setVideoSize(mInfos, 0);
 				setVideoType(mInfos, 0);
+				mVideoListView.setVisibility(View.VISIBLE);
+				mNoteList.setVisibility(View.GONE);
 				for (int i = 0; i < mInfos.size() ; i++) {
 	                 mVideoAddressList.add(mInfos.get(i).getmVideoAddress());	
 	                 mVideoNameList.add(mInfos.get(i).getmVideoName());
 				}
+			}else{
+				mVideoListView.setVisibility(View.GONE);
+				mNoteList.setVisibility(View.VISIBLE);
 			}
 		}
     }

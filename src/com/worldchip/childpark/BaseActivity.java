@@ -477,13 +477,13 @@ public class BaseActivity extends Activity {
         				getString(R.string.system_mode_eyeshield));
         		MySharePreData.SetIntData(MyApplication.getApplicationContex(), 
         				"my_system_setting", "display_setting", 0);
-        	} else if (mBrightnessVolume > 100 && mBrightnessVolume <= 200) {
+        	} else if (mBrightnessVolume > 100 && mBrightnessVolume <= 153) {
         		mTvMode.setText(MyApplication.getApplicationContex().getResources().
         				getString(R.string.system_mode_standard));
         		
         		MySharePreData.SetIntData(MyApplication.getApplicationContex(),
         				"my_system_setting", "display_setting", 1);
-        	} else if (mBrightnessVolume > 200 && mBrightnessVolume <= 255) {
+        	} else if (mBrightnessVolume > 153 && mBrightnessVolume <= 255) {
         		mTvMode.setText(MyApplication.getApplicationContex().getResources().
         				getString(R.string.system_mode_hd));
         		

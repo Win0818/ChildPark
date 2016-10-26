@@ -58,7 +58,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_gravity="center_horizontal"
-        android:text="返回"
         android:textSize="40sp"
         android:background="@drawable/selector_version_backbutton"/>
 

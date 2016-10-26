@@ -418,6 +418,43 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 				}
 				setSlectedIv(mPosition);
 				return false;
+			case KeyEvent.KEYCODE_DPAD_CENTER: //23
+				if (0 <= mPosition && mPosition < 5) {
+					skipLocalVideoListActivity(mPosition);
+					//openVstapp(getApplicationContext());
+				} else {
+					switch (mPosition) {
+					case 5:
+						setSlectedIv(5);
+						openVstapp(getApplicationContext());
+						break;
+					case 6:
+						setSlectedIv(6);
+						//openVstapp(getApplicationContext());
+						startChildAppActivity(6);
+						break;
+					case 7:
+						setSlectedIv(7);
+						//openChildContent();
+						skipLocalVideoListActivity(-1);
+						break;
+					case 8:
+						setSlectedIv(8);
+						// openUsbContent();
+						//skipLocalVideoListActivity(-1);
+						//showVersion();
+						startVersionActivity();
+						break;
+					case 9:
+						setSlectedIv(9);
+						//openSystemSetting();
+						startMySystemSetupActivity();
+						break;
+					default:
+						break;
+					}
+				}
+				return false;
 			case KeyEvent.KEYCODE_ENTER: //66
 				if (0 <= mPosition && mPosition < 5) {
 					skipLocalVideoListActivity(mPosition);
@@ -456,6 +493,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 				}
 				return false;
 			}
+			 
 		}
 		return super.dispatchKeyEvent(event);
 	};

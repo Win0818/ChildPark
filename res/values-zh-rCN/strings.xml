@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">贝雪魔盒</string>
+    <string name="app_name">贝雪儿童桌面</string>
     <string name="action_settings">Settings</string>
     <string name="add_video">正在准备哦...</string>
     <string name="add_image">正在加载图片...</string>

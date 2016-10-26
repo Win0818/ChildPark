@@ -94,6 +94,17 @@
         >
     </ListView>
     
+    
+    <TextView  
+        android:id="@+id/note_list"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_weight="2"
+        android:text="@string/note_list_null"
+        android:textSize="40sp"
+        />
+    
   </LinearLayout>
     
 </LinearLayout>
