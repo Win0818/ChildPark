@@ -28,7 +28,6 @@
             android:id="@+id/iv_video_category_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/video_show_category_story_house"
             android:layout_centerHorizontal="true"
             />
        </RelativeLayout>

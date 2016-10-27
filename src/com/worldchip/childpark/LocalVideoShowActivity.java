@@ -46,11 +46,11 @@ public class LocalVideoShowActivity  extends BaseActivity implements OnItemClick
 	MyVideoDataAsynTask mAsynTask =null;
 	
 	private int[] mImgIcons = {
-			                   R.drawable.video_category_0,
-			                   R.drawable.video_category_1,
-							   R.drawable.video_category_2,
-							   R.drawable.video_category_3,
-							   R.drawable.video_category_4,
+			                   R.drawable.image_new1,
+			                   R.drawable.image_new2,
+							   R.drawable.image_new3,
+							   R.drawable.image_new4,
+							   R.drawable.image_new5,
 							   R.drawable.video_category_5,
 							   };
 	private List<String> pathString = new ArrayList<String>();

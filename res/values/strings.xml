@@ -11,11 +11,11 @@
     <string name="login">登   录</string>
     <string name="register">注   册</string>
     
-    <string name="category_item1">故事大王</string>
-    <string name="category_item2">童瑶儿歌</string>
+    <string name="category_item1">寓言故事</string>
+    <string name="category_item2">童谣儿歌</string>
     <string name="category_item3">国学经典</string>
     <string name="category_item4">英语学习</string>
-    <string name="category_item5">动物世界</string>
+    <string name="category_item5">本地动画</string>
     <string name="category_item6">想象识字</string>
     
     <string name="all_app_error">打开本地应用错误：</string>

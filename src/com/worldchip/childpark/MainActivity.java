@@ -226,19 +226,14 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			break;
 		case R.id.Rl_main_play_online:  //�ⲿ�洢
 			setSlectedIv(7);
-			//openChildContent();
 			skipLocalVideoListActivity(-1);
 			break;
 		case R.id.Rl_main_extends_store: //�������
 			setSlectedIv(8);
-			// openUsbContent();
-			//skipLocalVideoListActivity(-1);
-			//showVersion();
 			startVersionActivity();
 			break;
 		case R.id.Rl_main_system_setting:
 			setSlectedIv(9);
-			//openSystemSetting();
 			startMySystemSetupActivity();
 			break;
 		default:
@@ -421,33 +416,26 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			case KeyEvent.KEYCODE_DPAD_CENTER: //23
 				if (0 <= mPosition && mPosition < 5) {
 					skipLocalVideoListActivity(mPosition);
-					//openVstapp(getApplicationContext());
 				} else {
 					switch (mPosition) {
 					case 5:
 						setSlectedIv(5);
-						openVstapp(getApplicationContext());
+						openChildContent();
 						break;
 					case 6:
 						setSlectedIv(6);
-						//openVstapp(getApplicationContext());
 						startChildAppActivity(6);
 						break;
 					case 7:
 						setSlectedIv(7);
-						//openChildContent();
 						skipLocalVideoListActivity(-1);
 						break;
 					case 8:
 						setSlectedIv(8);
-						// openUsbContent();
-						//skipLocalVideoListActivity(-1);
-						//showVersion();
 						startVersionActivity();
 						break;
 					case 9:
 						setSlectedIv(9);
-						//openSystemSetting();
 						startMySystemSetupActivity();
 						break;
 					default:
@@ -458,33 +446,26 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			case KeyEvent.KEYCODE_ENTER: //66
 				if (0 <= mPosition && mPosition < 5) {
 					skipLocalVideoListActivity(mPosition);
-					//openVstapp(getApplicationContext());
 				} else {
 					switch (mPosition) {
 					case 5:
 						setSlectedIv(5);
-						openVstapp(getApplicationContext());
+						openChildContent();
 						break;
 					case 6:
 						setSlectedIv(6);
-						//openVstapp(getApplicationContext());
 						startChildAppActivity(6);
 						break;
 					case 7:
 						setSlectedIv(7);
-						//openChildContent();
 						skipLocalVideoListActivity(-1);
 						break;
 					case 8:
 						setSlectedIv(8);
-						// openUsbContent();
-						//skipLocalVideoListActivity(-1);
-						//showVersion();
 						startVersionActivity();
 						break;
 					case 9:
 						setSlectedIv(9);
-						//openSystemSetting();
 						startMySystemSetupActivity();
 						break;
 					default:
@@ -522,15 +503,15 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		}
 	}
 	
-	 /*@Override
+	 @Override
 	    public boolean onKeyDown(int keyCode, KeyEvent event) {
 	    	if (keyCode == KeyEvent.KEYCODE_BACK) {
-	    		moveTaskToBack(false);
+	    		//moveTaskToBack(false);
 	    		return true;
 	    	}
 	    	return super.onKeyDown(keyCode, event);
 	   }
-*/
+
 	private Handler mMyHandler = new Handler() {
 		@Override
 		public void handleMessage(Message msg) {
@@ -545,7 +526,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			case Comments.TAG_SDCARD_IN:
 				Comments.EXTSDPATH = msg.obj.toString();
 				// test.setText(Comments.EXTSDPATH);
-				break;
+				break; 
 			}
 		}
 	};
